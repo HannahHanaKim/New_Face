@@ -58,7 +58,6 @@ public class Friend_List extends Fragment {
 
         });
 
-
         return view;
     }
 

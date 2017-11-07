@@ -7,41 +7,113 @@ import android.os.Handler;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.github.bassaer.chatmessageview.models.Message;
 import com.github.bassaer.chatmessageview.models.User;
 import com.github.bassaer.chatmessageview.utils.ChatBot;
 import com.github.bassaer.chatmessageview.views.ChatView;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.net.Socket;
 import java.util.Random;
 
 public class Activity_chat_room extends AppCompatActivity {
 
+    private String from_server_temp = null;
+    private Handler mHandler;
+
     private ChatView mChatView;
+    private BufferedReader inFromServer;
+    private BufferedWriter outToServer;
+    private Socket clientSocket;
+
+    User me;
+    User you;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat_room);
 
-        //User id
-        int myId = 0;
-        //User icon
-        Bitmap myIcon = BitmapFactory.decodeResource(getResources(), R.drawable.profile);
-        //User name
-        String myName = "나";
+        init();
 
-        int yourId = 1;
-        Bitmap yourIcon = BitmapFactory.decodeResource(getResources(), R.drawable.profile);
-        String yourName = "상대방";
+        //전송 버튼 눌렀을때
+        mChatView.setOnClickSendButtonListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Message message = new Message.Builder()
+                        .setUser(me)
+                        .setRightMessage(true)
+                        .setMessageText(mChatView.getInputText())
+                        .hideIcon(true)
+                        .build();
+                mChatView.send(message);
 
-        final User me = new User(myId, myName, myIcon);
-        final User you = new User(yourId, yourName, yourIcon);
+                try {
+                    PrintWriter out = new PrintWriter(outToServer, true);
+                    out.println(mChatView.getInputText());
+                } catch (Exception e) {
 
+                }
+
+                mChatView.setInputText("");
+            }
+
+        });
+    }
+
+
+    private Thread checkUpdate = new Thread() {
+        public void run() {
+            try {
+                while (true) {
+                    from_server_temp = inFromServer.readLine();
+                    mHandler.post(showUpdate);
+                }
+            } catch (Exception e) {
+                //Log.w("error", "error");
+            }
+        }
+    };
+
+    private Runnable showUpdate = new Runnable() {
+        public void run() {
+            if (from_server_temp != null){
+                Message receivedMessage = new Message.Builder()
+                        .setUser(you)
+                        .setRightMessage(false)
+                        .setMessageText(from_server_temp)
+                        .build();
+
+                mChatView.receive(receivedMessage);
+                from_server_temp = null;
+            }
+        }
+    };
+
+    void init(){
+        try{
+            clientSocket = new Socket("219.248.3.152", 6788);
+            outToServer = new BufferedWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
+            inFromServer =  new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+            checkUpdate.start();
+            mHandler = new Handler();
+            //clientSocket.close();
+        }catch (Exception e){
+            //Toast.makeText(getApplication(), "error", Toast.LENGTH_SHORT).show();
+        }
+
+        //채팅방 디자인 설정
         mChatView = (ChatView)findViewById(R.id.chat_view);
-
-        //Set UI parameters if you need
         mChatView.setRightBubbleColor(ContextCompat.getColor(this, R.color.green500));
         mChatView.setLeftBubbleColor(Color.WHITE);
         mChatView.setBackgroundColor(ContextCompat.getColor(this, R.color.blueGray500));
@@ -56,40 +128,8 @@ public class Activity_chat_room extends AppCompatActivity {
         mChatView.setMessageMarginTop(5);
         mChatView.setMessageMarginBottom(5);
 
-        //Click Send Button
-        mChatView.setOnClickSendButtonListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //new message
-                Message message = new Message.Builder()
-                        .setUser(me)
-                        .setRightMessage(true)
-                        .setMessageText(mChatView.getInputText())
-                        .hideIcon(true)
-                        .build();
-                //Set to chat view
-                mChatView.send(message);
-                //Reset edit text
-                mChatView.setInputText("");
-
-                //Receive message
-                final Message receivedMessage = new Message.Builder()
-                        .setUser(you)
-                        .setRightMessage(false)
-                        .setMessageText("안녕하세여")
-                        .build();
-
-                // This is a demo bot
-                // Return within 3 seconds
-                int sendDelay = (new Random().nextInt(4) + 1) * 1000;
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        mChatView.receive(receivedMessage);
-                    }
-                }, sendDelay);
-            }
-
-        });
+        //사용자 설정
+        me = new User(0, "나", BitmapFactory.decodeResource(getResources(), R.drawable.profile));
+        you = new User(1, "상대방", BitmapFactory.decodeResource(getResources(), R.drawable.profile));
     }
 }

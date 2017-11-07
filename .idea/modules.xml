@@ -4,10 +4,12 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/New_Face.iml" filepath="$PROJECT_DIR$/New_Face.iml" />
       <module fileurl="file://C:\Users\user\Desktop\New_Face\New_Face.iml" filepath="C:\Users\user\Desktop\New_Face\New_Face.iml" />
+      <module fileurl="file://C:\Users\User\Desktop\New_Face\New_Face\New_Face.iml" filepath="C:\Users\User\Desktop\New_Face\New_Face\New_Face.iml" />
       <module fileurl="file://C:\Users\Admin\Desktop\github\new_face\New_Face\New_Face.iml" filepath="C:\Users\Admin\Desktop\github\new_face\New_Face\New_Face.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://C:\Users\Admin\Desktop\github\new_face\New_Face\app\app.iml" filepath="C:\Users\Admin\Desktop\github\new_face\New_Face\app\app.iml" />
       <module fileurl="file://C:\Users\user\Desktop\New_Face\app\app.iml" filepath="C:\Users\user\Desktop\New_Face\app\app.iml" />
+      <module fileurl="file://C:\Users\Admin\Desktop\github\new_face\New_Face\app\app.iml" filepath="C:\Users\Admin\Desktop\github\new_face\New_Face\app\app.iml" />
+      <module fileurl="file://C:\Users\User\Desktop\New_Face\New_Face\app\app.iml" filepath="C:\Users\User\Desktop\New_Face\New_Face\app\app.iml" />
     </modules>
   </component>
 </project>

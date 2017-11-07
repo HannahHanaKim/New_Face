@@ -30,6 +30,23 @@ public class Activity_signup extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
 
+        ////
+
+
+
+
+
+
+        ///나중에 정리
+
+
+
+
+
+
+
+
+        /////
         ButterKnife.bind(this);
 
         _signupButton.setOnClickListener(new View.OnClickListener() {

@@ -26,7 +26,23 @@ public class Activity_login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        ////
 
+
+
+
+
+
+        ///나중에 정리
+
+
+
+
+
+
+
+
+        /////
         ButterKnife.bind(this);
 
         _loginButton.setOnClickListener(new View.OnClickListener() {

@@ -26,10 +26,7 @@ public class Chat_List extends Fragment {
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.chat_list, null);
 
-
-
         return view;
     }
-
 
 }
