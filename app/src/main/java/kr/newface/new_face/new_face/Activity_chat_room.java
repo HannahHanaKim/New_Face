@@ -26,12 +26,14 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Random;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class Activity_chat_room extends AppCompatActivity {
 
     private String from_server_temp = null;
     private Handler mHandler;
 
-    private ChatView mChatView;
     private BufferedReader inFromServer;
     private BufferedWriter outToServer;
     private Socket clientSocket;
@@ -39,11 +41,13 @@ public class Activity_chat_room extends AppCompatActivity {
     User me;
     User you;
 
+    @BindView(R.id.chat_view) ChatView mChatView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat_room);
 
+        ButterKnife.bind(this);
         init();
 
         //전송 버튼 눌렀을때
@@ -102,18 +106,20 @@ public class Activity_chat_room extends AppCompatActivity {
 
     void init(){
         try{
-            clientSocket = new Socket("219.248.3.152", 6788);
+            //나중에 켜야됨
+            //clientSocket = new Socket("219.248.3.152", 6788);
+
             outToServer = new BufferedWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
             inFromServer =  new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+
             checkUpdate.start();
             mHandler = new Handler();
             //clientSocket.close();
         }catch (Exception e){
-            //Toast.makeText(getApplication(), "error", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplication(), "서버 오류", Toast.LENGTH_SHORT).show();
         }
 
         //채팅방 디자인 설정
-        mChatView = (ChatView)findViewById(R.id.chat_view);
         mChatView.setRightBubbleColor(ContextCompat.getColor(this, R.color.green500));
         mChatView.setLeftBubbleColor(Color.WHITE);
         mChatView.setBackgroundColor(ContextCompat.getColor(this, R.color.blueGray500));

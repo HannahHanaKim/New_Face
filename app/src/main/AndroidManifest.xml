@@ -10,15 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
+
+        </activity>
+        <activity android:name=".Activity_chat_room" />
+        <activity android:name=".Activity_login" android:theme="@style/AppTheme.Dark" android:windowSoftInputMode="stateAlwaysHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
-        <activity android:name=".Activity_chat_room" />
-        <activity android:name=".Activity_login" android:theme="@style/AppTheme.Dark"/>
-        <activity android:name=".Activity_signup" android:theme="@style/AppTheme.Dark" />
+        <activity android:name=".Activity_signup" android:theme="@style/AppTheme.Dark" android:windowSoftInputMode="stateAlwaysHidden" />
     </application>
 
 </manifest>
