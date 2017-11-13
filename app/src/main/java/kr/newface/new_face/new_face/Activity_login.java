@@ -28,19 +28,7 @@ public class Activity_login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         ////
 
-
-
-
-
-
         ///나중에 정리
-
-
-
-
-
-
-
 
         /////
         ButterKnife.bind(this);
@@ -119,7 +107,8 @@ public class Activity_login extends AppCompatActivity {
 
     public void onLoginSuccess() {
         _loginButton.setEnabled(true);
-        finish();
+        Intent it = new Intent(Activity_login.this, MainActivity.class);
+        startActivity(it);
     }
 
     public void onLoginFailed() {

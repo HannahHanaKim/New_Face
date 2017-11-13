@@ -105,11 +105,12 @@ public class Activity_signup extends AppCompatActivity {
                 }, 3000);
     }
 
-
+   //회원가입성공시 설문조사로 넘기기
     public void onSignupSuccess() {
         _signupButton.setEnabled(true);
         setResult(RESULT_OK, null);
-        finish();
+        Intent it = new Intent(Activity_signup.this, searchActivity.class);
+        startActivity(it);
     }
 
     public void onSignupFailed() {
@@ -122,21 +123,21 @@ public class Activity_signup extends AppCompatActivity {
         boolean valid = true;
 
         String name = _nameText.getText().toString();
-        String address = _addressText.getText().toString();
+        String studentID = _addressText.getText().toString();
         String email = _emailText.getText().toString();
         String mobile = _mobileText.getText().toString();
         String password = _passwordText.getText().toString();
         String reEnterPassword = _reEnterPasswordText.getText().toString();
 
-        if (name.isEmpty() || name.length() < 3) {
-            _nameText.setError("at least 3 characters");
+        if (name.isEmpty() || name.length() <1) {
+            _nameText.setError("Character at least 1");
             valid = false;
         } else {
             _nameText.setError(null);
         }
 
-        if (address.isEmpty()) {
-            _addressText.setError("Enter Valid Address");
+        if (studentID.isEmpty()||studentID.length()!=9) {
+            _addressText.setError("Enter Valid studentId");
             valid = false;
         } else {
             _addressText.setError(null);
@@ -150,7 +151,7 @@ public class Activity_signup extends AppCompatActivity {
             _emailText.setError(null);
         }
 
-        if (mobile.isEmpty() || mobile.length()!=10) {
+        if (mobile.isEmpty() || mobile.length()<10) {
             _mobileText.setError("Enter Valid Mobile Number");
             valid = false;
         } else {
