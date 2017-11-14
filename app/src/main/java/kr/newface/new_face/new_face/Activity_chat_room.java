@@ -1,5 +1,6 @@
 package kr.newface.new_face.new_face;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -29,6 +30,7 @@ import java.util.Random;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+
 public class Activity_chat_room extends AppCompatActivity {
 
     private String from_server_temp = null;
@@ -50,6 +52,11 @@ public class Activity_chat_room extends AppCompatActivity {
         ButterKnife.bind(this);
         init();
 
+        Intent intent = getIntent();
+        final String name = intent.getExtras().getString("name");
+
+
+
         //전송 버튼 눌렀을때
         mChatView.setOnClickSendButtonListener(new View.OnClickListener() {
             @Override
@@ -69,12 +76,13 @@ public class Activity_chat_room extends AppCompatActivity {
 
                 }
 
+
+                Toast.makeText(getApplication(), "\"보낸이학번\",\"" + name + "\",\"" + mChatView.getInputText() + "\"", Toast.LENGTH_SHORT).show();
                 mChatView.setInputText("");
             }
 
         });
     }
-
 
     private Thread checkUpdate = new Thread() {
         public void run() {

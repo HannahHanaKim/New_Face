@@ -43,73 +43,73 @@ public class Friend_List extends Fragment {
     private ListViewAdapter mAdapter = null;
     Handler handler = new Handler();
 
-    public Friend_List() {
+        public Friend_List() {
 
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.friend_list, null);
-
-        final PullRefreshLayout layout = (PullRefreshLayout) view.findViewById(R.id.swipeRefreshLayout);
-        layout.setOnRefreshListener(new PullRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                mListView.setEnabled(false);
-                Thread thread = new Thread() {
-                    @Override
-                    public void run() {
-                        handler.postDelayed(new Runnable() {
-                            public void run() {
-                                handler.postDelayed(new Runnable() {
-                                    public void run() {
-                                        layout.setRefreshing(false);
-                                        mListView.setEnabled(true);
-                                    }
-                                }, 0);
-                            }
-                        }, 500);
-
-                    }
-                };
-                thread.start();
-            }
-        });
-        layout.setRefreshStyle(PullRefreshLayout.STYLE_SMARTISAN);
-
-        mListView = (ListView) view.findViewById(R.id.listView);
-        mAdapter = new ListViewAdapter(getActivity());
-        mListView.setAdapter(mAdapter);
-
-        for (int i = 1;i<50;i++){
-            mAdapter.addItem(getResources().getDrawable(R.drawable.profile),"사람" + i,"매칭값 : 71%","취미");
-        }
-
-
-
-
-        return view;
-    }
-
-    private class ListViewAdapter extends BaseAdapter {
-        private Context mContext = null;
-        private ArrayList<Table_Cell> mListData = new ArrayList<Table_Cell>();
-
-        public ListViewAdapter(Context mContext) {
-            super();
-            this.mContext = mContext;
         }
 
         @Override
-        public int getCount() {
-            return mListData.size();
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
         }
+
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                                 Bundle savedInstanceState) {
+            view = inflater.inflate(R.layout.friend_list, null);
+
+            final PullRefreshLayout layout = (PullRefreshLayout) view.findViewById(R.id.swipeRefreshLayout);
+            layout.setOnRefreshListener(new PullRefreshLayout.OnRefreshListener() {
+                @Override
+                public void onRefresh() {
+                    mListView.setEnabled(false);
+                    Thread thread = new Thread() {
+                        @Override
+                        public void run() {
+                            handler.postDelayed(new Runnable() {
+                                public void run() {
+                                    handler.postDelayed(new Runnable() {
+                                        public void run() {
+                                            layout.setRefreshing(false);
+                                            mListView.setEnabled(true);
+                                        }
+                                    }, 0);
+                                }
+                            }, 500);
+
+                        }
+                    };
+                    thread.start();
+                }
+            });
+            layout.setRefreshStyle(PullRefreshLayout.STYLE_SMARTISAN);
+
+            mListView = (ListView) view.findViewById(R.id.listView);
+            mAdapter = new ListViewAdapter(getActivity());
+            mListView.setAdapter(mAdapter);
+
+            for (int i = 1;i<10;i++){
+                mAdapter.addItem(getResources().getDrawable(R.drawable.profile),"20163581" + i,"매칭값 : 71%","취미");
+            }
+
+
+
+
+            return view;
+        }
+
+        private class ListViewAdapter extends BaseAdapter {
+            private Context mContext = null;
+            private ArrayList<Table_Cell> mListData = new ArrayList<Table_Cell>();
+
+            public ListViewAdapter(Context mContext) {
+                super();
+                this.mContext = mContext;
+            }
+
+            @Override
+            public int getCount() {
+                return mListData.size();
+            }
 
         @Override
         public Object getItem(int position) {
@@ -140,7 +140,7 @@ public class Friend_List extends Fragment {
                 holder = (ViewHolder) convertView.getTag();
             }
 
-            Table_Cell mData = mListData.get(position);
+            final Table_Cell mData = mListData.get(position);
 
             holder.image.setImageDrawable(mData.image);
             holder.name.setText(mData.name);
@@ -151,7 +151,9 @@ public class Friend_List extends Fragment {
             Button1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    //friend = mData.name;
                     Intent intent1 = new Intent(getActivity(),Activity_chat_room.class);
+                    intent1.putExtra("name", mData.name);
                     startActivity(intent1);
                 }
 
