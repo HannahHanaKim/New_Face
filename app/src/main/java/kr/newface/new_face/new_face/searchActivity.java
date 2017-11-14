@@ -10,7 +10,7 @@ import android.widget.CheckBox;
 import butterknife.BindView;
 
 public class searchActivity extends AppCompatActivity {
-    CheckBox s1 = (CheckBox) findViewById(R.id.s1);
+  /*  CheckBox s1 = (CheckBox) findViewById(R.id.s1);
     CheckBox s2 = (CheckBox) findViewById(R.id.s2);
     CheckBox s3 = (CheckBox) findViewById(R.id.s3);
     CheckBox s4 = (CheckBox) findViewById(R.id.s4);
@@ -37,12 +37,13 @@ public class searchActivity extends AppCompatActivity {
     CheckBox s25  = (CheckBox) findViewById(R.id.s25);
     CheckBox s26 = (CheckBox) findViewById(R.id.s26);
     CheckBox s27 = (CheckBox) findViewById(R.id.s27);
-    CheckBox s28 = (CheckBox) findViewById(R.id.s28);
+    CheckBox s28 = (CheckBox) findViewById(R.id.s28);*/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
-        int[] search = new int[28];
+
+        /*int[] search = new int[28];
         if(s1.isChecked()){search[0]=1;}
         else{search[0]=0;}
         if(s2.isChecked()){search[1]=1;}
@@ -98,6 +99,6 @@ public class searchActivity extends AppCompatActivity {
         if(s27.isChecked()){search[26]=1;}
         else{search[26]=0;}
         if(s28.isChecked()){search[27]=1;}
-        else{search[27]=0;}
+        else{search[27]=0;}*/
     }
 }

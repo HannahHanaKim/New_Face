@@ -30,23 +30,6 @@ public class Activity_signup extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
 
-        ////
-
-
-
-
-
-
-        ///나중에 정리
-
-
-
-
-
-
-
-
-        /////
         ButterKnife.bind(this);
 
         _signupButton.setOnClickListener(new View.OnClickListener() {
@@ -102,7 +85,7 @@ public class Activity_signup extends AppCompatActivity {
                         // onSignupFailed();
                         progressDialog.dismiss();
                     }
-                }, 3000);
+                }, 2000);
     }
 
    //회원가입성공시 설문조사로 넘기기
