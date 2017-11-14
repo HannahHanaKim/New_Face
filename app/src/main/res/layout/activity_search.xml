@@ -34,7 +34,7 @@
            android:orientation="horizontal">
 
            <CheckBox
-               android:id="@+id/ct1"
+               android:id="@+id/s1"
                android:layout_width="0dp"
                android:layout_height="wrap_content"
                android:layout_weight="1"
@@ -42,7 +42,7 @@
                android:textSize="20sp" />
 
            <CheckBox
-               android:id="@+id/ct2"
+               android:id="@+id/s2"
                android:layout_width="0dp"
                android:layout_height="wrap_content"
                android:layout_weight="1"
@@ -55,7 +55,7 @@
             android:orientation="horizontal">
 
             <CheckBox
-                android:id="@+id/ct3"
+                android:id="@+id/s3"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -63,7 +63,7 @@
                 android:textSize="20sp" />
 
             <CheckBox
-                android:id="@+id/ct4"
+                android:id="@+id/s4"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -89,7 +89,7 @@
             android:orientation="horizontal">
 
             <CheckBox
-                android:id="@+id/cm1"
+                android:id="@+id/s5"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -97,7 +97,7 @@
                 android:textSize="20sp" />
 
             <CheckBox
-                android:id="@+id/cm2"
+                android:id="@+id/s6"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -111,7 +111,7 @@
             android:orientation="horizontal">
 
             <CheckBox
-                android:id="@+id/cm3"
+                android:id="@+id/s7"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -119,7 +119,7 @@
                 android:textSize="20sp" />
 
             <CheckBox
-                android:id="@+id/cm4"
+                android:id="@+id/s8"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -132,7 +132,7 @@
             android:orientation="horizontal">
 
             <CheckBox
-                android:id="@+id/cm5"
+                android:id="@+id/s9"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -158,7 +158,7 @@
             android:orientation="horizontal">
 
             <CheckBox
-                android:id="@+id/ce1"
+                android:id="@+id/s10"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -166,7 +166,7 @@
                 android:textSize="20sp" />
 
             <CheckBox
-                android:id="@+id/ce2"
+                android:id="@+id/s11"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -179,7 +179,7 @@
             android:orientation="horizontal">
 
             <CheckBox
-                android:id="@+id/ce3"
+                android:id="@+id/s12"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -205,7 +205,7 @@
             android:orientation="horizontal">
 
             <CheckBox
-                android:id="@+id/cs1"
+                android:id="@+id/s13"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -213,7 +213,7 @@
                 android:textSize="20sp" />
 
             <CheckBox
-                android:id="@+id/cs2"
+                android:id="@+id/s14"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -226,7 +226,7 @@
             android:orientation="horizontal">
 
             <CheckBox
-                android:id="@+id/cs3"
+                android:id="@+id/s15"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -257,7 +257,7 @@
             android:orientation="horizontal">
 
             <CheckBox
-                android:id="@+id/ca1"
+                android:id="@+id/s16"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -265,7 +265,7 @@
                 android:textSize="20sp" />
 
             <CheckBox
-                android:id="@+id/ca2"
+                android:id="@+id/s17"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -278,7 +278,7 @@
             android:orientation="horizontal">
 
             <CheckBox
-                android:id="@+id/ca3"
+                android:id="@+id/s18"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -286,7 +286,7 @@
                 android:textSize="20sp" />
 
             <CheckBox
-                android:id="@+id/ca4"
+                android:id="@+id/s19"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -312,7 +312,7 @@
             android:orientation="horizontal">
 
             <CheckBox
-                android:id="@+id/cf1"
+                android:id="@+id/s20"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -320,7 +320,7 @@
                 android:textSize="20sp" />
 
             <CheckBox
-                android:id="@+id/cf2"
+                android:id="@+id/s21"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -345,7 +345,7 @@
                 android:orientation="horizontal">
 
                 <CheckBox
-                    android:id="@+id/cp1"
+                    android:id="@+id/s22"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -353,7 +353,7 @@
                     android:textSize="20sp" />
 
                 <CheckBox
-                    android:id="@+id/cp2"
+                    android:id="@+id/s23"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -380,7 +380,7 @@
             android:orientation="horizontal">
 
             <CheckBox
-                android:id="@+id/cw1"
+                android:id="@+id/s24"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -388,12 +388,59 @@
                 android:textSize="20sp" />
 
             <CheckBox
-                android:id="@+id/cw2"
+                android:id="@+id/s25"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Group"
                 android:textSize="20sp" />
+        </LinearLayout>
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:text="Game"
+                android:gravity="center"/>
+        </android.support.design.widget.TextInputLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/s26"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Online Game"
+                android:textSize="20sp" />
+
+            <CheckBox
+                android:id="@+id/s27"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Application"
+                android:textSize="20sp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/s28"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Playstation"
+                android:textSize="20sp" />
+
         </LinearLayout>
     </LinearLayout>
         <android.support.v7.widget.AppCompatButton
