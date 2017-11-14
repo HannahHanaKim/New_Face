@@ -3,30 +3,22 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/chat_room"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-        android:text="chat_room"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+    <com.baoyz.widget.PullRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#00000000">
 
-    <Button
-        android:id="@+id/login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/signup"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="23dp"
-        android:text="login" />
+        <ListView
+            android:id="@+id/listView"
+            android:paddingTop="0dp"
+            android:layout_width="fill_parent"
+            android:divider="@null"
+            android:layout_height="fill_parent"
+            android:drawSelectorOnTop="false"
+            android:cacheColorHint="#00000000"
+            android:scrollingCache="false">
+        </ListView>
 
-    <Button
-        android:id="@+id/signup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/login"
-        android:layout_below="@+id/chat_room"
-        android:layout_marginTop="15dp"
-        android:text="signup" />
+    </com.baoyz.widget.PullRefreshLayout>
 </RelativeLayout>

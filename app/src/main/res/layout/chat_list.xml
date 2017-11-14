@@ -1,23 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <CheckBox
-        android:id="@+id/checkBox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="CheckBox"
-        android:layout_marginTop="47dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+    <com.baoyz.widget.PullRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#00000000">
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/checkBox"
-        android:layout_below="@+id/checkBox"
-        android:layout_marginTop="16dp"
-        android:text="Button" />
+        <ListView
+            android:id="@+id/listView"
+            android:paddingTop="0dp"
+            android:layout_width="fill_parent"
+            android:divider="@null"
+            android:layout_height="fill_parent"
+            android:drawSelectorOnTop="false"
+            android:cacheColorHint="#00000000"
+            android:scrollingCache="false">
+        </ListView>
+
+    </com.baoyz.widget.PullRefreshLayout>
 </RelativeLayout>
