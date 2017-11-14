@@ -18,7 +18,7 @@
         <activity android:name=".Activity_chat_room" />
         <activity android:name=".Activity_login" android:theme="@style/AppTheme.Dark"/>
         <activity android:name=".Activity_signup" android:theme="@style/AppTheme.Dark" />
+        <activity android:name=".searchActivity" android:theme="@style/AppTheme.Dark" />
         <activity android:name=".MainActivity"/>
     </application>
-
 </manifest>

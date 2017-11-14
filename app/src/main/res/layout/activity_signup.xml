@@ -17,7 +17,73 @@
             android:layout_height="72dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="24dp"
-            android:src="@drawable/friend" />
+            android:src="@drawable/friend"
+            android:id="@+id/image"/>
+
+        <RelativeLayout
+            android:id="@+id/sliding"
+            android:layout_width="match_parent"
+            android:visibility="gone"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/asian_man"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="12dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/asian_man" />
+
+            <ImageView
+                android:id="@+id/asian_woman"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignTop="@+id/asian_man"
+                android:layout_marginStart="20dp"
+                android:layout_toEndOf="@+id/asian_man"
+                android:scaleType="centerInside"
+                android:src="@drawable/asian_woman" />
+
+            <ImageView
+                android:id="@+id/black_man"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignTop="@+id/asian_woman"
+                android:layout_marginStart="20dp"
+                android:layout_toEndOf="@+id/asian_woman"
+                android:scaleType="centerInside"
+                android:src="@drawable/black_man" />
+
+            <ImageView
+                android:id="@+id/black_woman"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignStart="@+id/asian_man"
+                android:layout_below="@+id/asian_man"
+                android:layout_marginTop="20dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/black_woman" />
+
+            <ImageView
+                android:id="@+id/white_man"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignStart="@+id/asian_woman"
+                android:layout_alignTop="@+id/black_woman"
+                android:scaleType="centerInside"
+                android:src="@drawable/white_man" />
+
+            <ImageView
+                android:id="@+id/white_woman"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignStart="@+id/black_man"
+                android:layout_alignTop="@+id/white_man"
+                android:scaleType="centerInside"
+                android:src="@drawable/white_woman" />
+        </RelativeLayout>
 
         <!-- Name Label -->
         <android.support.design.widget.TextInputLayout
@@ -30,7 +96,7 @@
                 android:id="@+id/input_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Name"
+                android:hint="이름"
                 android:inputType="textPersonName" />
         </android.support.design.widget.TextInputLayout>
 
@@ -42,42 +108,10 @@
             android:layout_marginTop="8dp">
 
             <EditText
-                android:id="@+id/input_address"
+                android:id="@+id/input_studentID"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="StudentID"
-                android:inputType="number" />
-        </android.support.design.widget.TextInputLayout>
-
-
-        <!--  Email Label -->
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginTop="8dp">
-
-            <EditText
-                android:id="@+id/input_email"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Email"
-                android:inputType="textEmailAddress" />
-        </android.support.design.widget.TextInputLayout>
-
-
-        <!-- mobile number -->
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginTop="8dp">
-
-            <EditText
-                android:id="@+id/input_mobile"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Mobile Number"
+                android:hint="학번"
                 android:inputType="number" />
         </android.support.design.widget.TextInputLayout>
 
@@ -92,7 +126,7 @@
                 android:id="@+id/input_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Password"
+                android:hint="비밀번호"
                 android:inputType="textPassword" />
         </android.support.design.widget.TextInputLayout>
 
@@ -107,7 +141,7 @@
                 android:id="@+id/input_reEnterPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Re-enter Password"
+                android:hint="비밀번호 확인"
                 android:inputType="textPassword" />
         </android.support.design.widget.TextInputLayout>
 
@@ -119,7 +153,7 @@
             android:layout_marginBottom="24dp"
             android:layout_marginTop="24dp"
             android:padding="12dp"
-            android:text="Next Page" />
+            android:text="다음 페이지" />
 
         <TextView
             android:id="@+id/link_login"
@@ -127,7 +161,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
             android:gravity="center"
-            android:text="Already a member? Login"
+            android:text="이미 회원가입 되어있습니까?"
             android:textSize="16dip" />
 
     </LinearLayout>
