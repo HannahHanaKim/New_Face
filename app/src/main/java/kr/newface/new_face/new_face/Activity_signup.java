@@ -58,7 +58,13 @@ public class Activity_signup extends AppCompatActivity {
         image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sliding.setVisibility(View.VISIBLE);
+                if(sliding.getVisibility()==View.VISIBLE){
+                    sliding.setVisibility(View.GONE);
+                }
+                else {
+                    sliding.setVisibility(View.VISIBLE);
+                }
+
             }
         });
 
@@ -70,6 +76,7 @@ public class Activity_signup extends AppCompatActivity {
         image5 = (ImageView)findViewById(R.id.white_man);
         image6 = (ImageView)findViewById(R.id.white_woman);
         //이미지를 선택할 시 이미지 선택창을 다시 안보이게 설정하고 선택한 이미지로 대체
+
         image1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
