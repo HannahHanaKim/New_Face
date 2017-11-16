@@ -33,8 +33,13 @@ public class Activity_login extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivityForResult(intent, REQUEST_SIGNUP);
+                if(!validate()) {
+                    return;
+                }
+                else {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivityForResult(intent, REQUEST_SIGNUP);
+                }
             }
         });
 
@@ -49,6 +54,27 @@ public class Activity_login extends AppCompatActivity {
                 overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
             }
         });
+    }
+    public boolean validate() {
+        boolean valid = true;
+
+        String name = _emailText.getText().toString();
+        String password = _passwordText.getText().toString();
+
+        if (name.length()!=9||name.isEmpty()) {
+            _emailText.setError("학번을 입력해주십시오");
+            valid = false;
+        } else {
+            _emailText.setError(null);
+        }
+
+        if (password.isEmpty() || password.length() < 4 || password.length() > 10) {
+            _passwordText.setError("비밀번호를 입력해주십시오");
+            valid = false;
+        } else {
+            _passwordText.setError(null);
+        }
+        return valid;
     }
 
 

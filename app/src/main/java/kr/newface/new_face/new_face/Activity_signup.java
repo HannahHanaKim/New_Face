@@ -28,6 +28,8 @@ public class Activity_signup extends AppCompatActivity {
     @BindView(R.id.input_reEnterPassword) EditText _reEnterPasswordText;
     @BindView(R.id.btn_signup) Button _signupButton;
     @BindView(R.id.link_login) TextView _loginLink;
+
+    ImageView image;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,7 +56,7 @@ public class Activity_signup extends AppCompatActivity {
         });
         sliding = (RelativeLayout)findViewById(R.id.sliding);
         //이미지 버튼을 누르면 이미지를 고를 수 잇는 창이 나타남
-        final ImageView image = (ImageView)findViewById(R.id.image);
+        image = (ImageView)findViewById(R.id.image);
         image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -123,9 +125,12 @@ public class Activity_signup extends AppCompatActivity {
 
     public void signup() {
         Log.d(TAG, "Signup");
-
         if (!validate()) {
             onSignupFailed();
+            return;
+        }
+        if(image.getId()==R.id.image){
+            Toast.makeText(getApplicationContext(),"이미지를 선택해주세요",Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -205,7 +210,6 @@ public class Activity_signup extends AppCompatActivity {
         } else {
             _reEnterPasswordText.setError(null);
         }
-
         return valid;
     }
 }
