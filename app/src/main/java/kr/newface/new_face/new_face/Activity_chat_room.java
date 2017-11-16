@@ -30,6 +30,8 @@ import java.util.Random;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+import static kr.newface.new_face.new_face.MainActivity.my_id;
+
 
 public class Activity_chat_room extends AppCompatActivity {
 
@@ -77,7 +79,7 @@ public class Activity_chat_room extends AppCompatActivity {
                 }
 
 
-                Toast.makeText(getApplication(), "\"보낸이학번\",\"" + name + "\",\"" + mChatView.getInputText() + "\"", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplication(), "\"" + my_id + "\",\"" + name + "\",\"" + mChatView.getInputText() + "\"", Toast.LENGTH_SHORT).show();
                 mChatView.setInputText("");
             }
 
@@ -122,6 +124,13 @@ public class Activity_chat_room extends AppCompatActivity {
 
             checkUpdate.start();
             mHandler = new Handler();
+
+            try {
+                PrintWriter out = new PrintWriter(outToServer, true);
+                out.println("\"" + my_id + "\"");
+            } catch (Exception e) {
+
+            }
             //clientSocket.close();
         }catch (Exception e){
             Toast.makeText(getApplication(), "서버 오류", Toast.LENGTH_SHORT).show();
