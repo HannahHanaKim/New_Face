@@ -8,8 +8,7 @@
     android:paddingTop="0dp"
     android:paddingBottom="0dp"
     android:background="#fafafa"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.jungcode.jm2.jm2.MainActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <RelativeLayout
         android:layout_width="fill_parent"

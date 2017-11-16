@@ -124,7 +124,7 @@ public class Chat_List extends Fragment {
                 holder = (ViewHolder) convertView.getTag();
             }
 
-            Table_Cell mData = mListData.get(position);
+            final Table_Cell mData = mListData.get(position);
 
             holder.image.setImageDrawable(mData.image);
             holder.name.setText(mData.name);
@@ -136,6 +136,7 @@ public class Chat_List extends Fragment {
                 @Override
                 public void onClick(View v) {
                     Intent intent1 = new Intent(getActivity(),Activity_chat_room.class);
+                    intent1.putExtra("name", mData.name);
                     startActivity(intent1);
                 }
 

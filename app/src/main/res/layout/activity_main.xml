@@ -11,9 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginBottom="236dp"
-        android:layout_marginEnd="65dp">
+        android:layout_alignParentEnd="true">
 
 
         <android.support.design.widget.AppBarLayout
@@ -58,7 +56,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
 
-            app:layout_anchor="@+id/asian_man"
             app:layout_anchorGravity="right|bottom"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 

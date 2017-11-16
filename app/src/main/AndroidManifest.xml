@@ -20,5 +20,6 @@
         <activity android:name=".Activity_signup" android:theme="@style/AppTheme.Dark" />
         <activity android:name=".searchActivity" android:theme="@style/AppTheme.Dark" />
         <activity android:name=".MainActivity"/>
+        <activity android:name=".Activity_character"/>
     </application>
 </manifest>
