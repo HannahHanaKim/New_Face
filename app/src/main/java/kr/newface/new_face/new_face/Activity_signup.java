@@ -30,6 +30,7 @@ public class Activity_signup extends AppCompatActivity {
     @BindView(R.id.link_login) TextView _loginLink;
 
     ImageView image;
+    int count =0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,6 +85,7 @@ public class Activity_signup extends AppCompatActivity {
             public void onClick(View view) {
                 image.setImageDrawable(getResources().getDrawable(R.drawable.asian_man));
                 sliding.setVisibility(View.GONE);
+                count =1;
             }
         });
         image2.setOnClickListener(new View.OnClickListener() {
@@ -91,6 +93,7 @@ public class Activity_signup extends AppCompatActivity {
             public void onClick(View view) {
                 image.setImageDrawable(getResources().getDrawable(R.drawable.asian_woman));
                 sliding.setVisibility(View.GONE);
+                count = 2;
             }
         });
         image3.setOnClickListener(new View.OnClickListener() {
@@ -98,6 +101,7 @@ public class Activity_signup extends AppCompatActivity {
             public void onClick(View view) {
                 image.setImageDrawable(getResources().getDrawable(R.drawable.black_man));
                 sliding.setVisibility(View.GONE);
+                count = 3;
             }
         });
         image4.setOnClickListener(new View.OnClickListener() {
@@ -105,6 +109,7 @@ public class Activity_signup extends AppCompatActivity {
             public void onClick(View view) {
                 image.setImageDrawable(getResources().getDrawable(R.drawable.black_woman));
                 sliding.setVisibility(View.GONE);
+                count =4;
             }
         });
         image5.setOnClickListener(new View.OnClickListener() {
@@ -112,6 +117,7 @@ public class Activity_signup extends AppCompatActivity {
             public void onClick(View view) {
                 image.setImageDrawable(getResources().getDrawable(R.drawable.white_man));
                 sliding.setVisibility(View.GONE);
+                count = 5;
             }
         });
         image6.setOnClickListener(new View.OnClickListener() {
@@ -119,6 +125,7 @@ public class Activity_signup extends AppCompatActivity {
             public void onClick(View view) {
                 image.setImageDrawable(getResources().getDrawable(R.drawable.white_woman));
                 sliding.setVisibility(View.GONE);
+                count = 6;
             }
         });
     }
@@ -146,6 +153,7 @@ public class Activity_signup extends AppCompatActivity {
         String studentId = _studentIdText.getText().toString();
         String password = _passwordText.getText().toString();
         String reEnterPassword = _reEnterPasswordText.getText().toString();
+
 
         // TODO: Implement your own signup logic here.
 
