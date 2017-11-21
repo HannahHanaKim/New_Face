@@ -6,18 +6,26 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
-public class searchActivity extends AppCompatActivity {
+import android.widget.Toast;
 
+import java.util.Arrays;
+
+public class searchActivity extends AppCompatActivity {
+    String data;
+    String arr;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
+        final int[] search = new int[28];
         Button btn = (Button)findViewById(R.id.btn_signup);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent it = new Intent(searchActivity.this, Activity_login.class);
-                startActivity(it);
+                /*Intent it = new Intent(searchActivity.this, Activity_login.class);
+                startActivity(it);*/
+                arr = Arrays.toString(search);
+                Toast.makeText(getApplicationContext(),data + " "+arr,Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -50,7 +58,6 @@ public class searchActivity extends AppCompatActivity {
         CheckBox s27 = (CheckBox)findViewById(R.id.s27);
         CheckBox s28 = (CheckBox)findViewById(R.id.s28);
 
-        int[] search = new int[28];
         if(s1.isChecked()){search[0]=1;} else{search[0]=0;}
         if(s2.isChecked()){search[1]=1;} else{search[1]=0;}
         if(s3.isChecked()){search[2]=1;} else{search[2]=0;}
@@ -79,5 +86,9 @@ public class searchActivity extends AppCompatActivity {
         if(s26.isChecked()){search[25]=1;} else{search[25]=0;}
         if(s27.isChecked()){search[26]=1;} else{search[26]=0;}
         if(s28.isChecked()){search[27]=1;} else{search[27]=0;}
+
+        Intent it = getIntent();
+        data = it.getStringExtra("data");
+        startActivity(it);
     }
 }

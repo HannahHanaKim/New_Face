@@ -28,6 +28,7 @@ public class Activity_signup extends AppCompatActivity {
     @BindView(R.id.input_reEnterPassword) EditText _reEnterPasswordText;
     @BindView(R.id.btn_signup) Button _signupButton;
     @BindView(R.id.link_login) TextView _loginLink;
+    String data = null;
 
     ImageView image;
     int count =0;
@@ -49,8 +50,6 @@ public class Activity_signup extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Finish the registration screen and return to the Login activity
-                Intent intent = new Intent(getApplicationContext(),Activity_login.class);
-                startActivity(intent);
                 finish();
                 overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
             }
@@ -67,7 +66,6 @@ public class Activity_signup extends AppCompatActivity {
                 else {
                     sliding.setVisibility(View.VISIBLE);
                 }
-
             }
         });
 
@@ -128,6 +126,7 @@ public class Activity_signup extends AppCompatActivity {
                 count = 6;
             }
         });
+
     }
 
     public void signup() {
@@ -136,7 +135,7 @@ public class Activity_signup extends AppCompatActivity {
             onSignupFailed();
             return;
         }
-        if(image.getId()==R.id.image){
+        if(count == 0){
             Toast.makeText(getApplicationContext(),"이미지를 선택해주세요",Toast.LENGTH_SHORT).show();
             return;
         }
@@ -156,6 +155,11 @@ public class Activity_signup extends AppCompatActivity {
 
 
         // TODO: Implement your own signup logic here.
+        String countString = String.valueOf(count);
+        data = countString+" "+_nameText.getText().toString()+" "+_studentIdText.getText().toString()+" "+_passwordText.getText().toString();
+        Intent it = new Intent(this, searchActivity.class);
+        it.putExtra("data", data);
+        startActivity(it);
 
         new android.os.Handler().postDelayed(
                 new Runnable() {
