@@ -144,7 +144,7 @@ public class Activity_chat_room extends AppCompatActivity {
         getSupportActionBar().setElevation(0);
         try{
             //나중에 켜야됨
-            //clientSocket = new Socket("192.9.81.159", 9001);
+            clientSocket = new Socket("192.9.128.160", 9001);
 
             outToServer = new BufferedWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
             inFromServer =  new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
@@ -158,16 +158,24 @@ public class Activity_chat_room extends AppCompatActivity {
             Toast.makeText(getApplication(), "서버 오류", Toast.LENGTH_SHORT).show();
         }
 
-        if (name.contains("채팅방")){
-            Toast.makeText(getApplication(), "\"" + my_id + "\"/\"" + name.split("채팅방")[1] + "\"", Toast.LENGTH_SHORT).show();
 
-        }else{
-            Toast.makeText(getApplication(), "\"" + my_id + "\"/\"-1\"", Toast.LENGTH_SHORT).show();
-            Toast.makeText(getApplication(), "\"" + name + "\"", Toast.LENGTH_SHORT).show();
-        }
         try {
+
+
             PrintWriter out = new PrintWriter(outToServer, true);
-            out.println("\"" + my_id + "\"");
+
+
+            if (name.contains("채팅방")){
+                Toast.makeText(getApplication(), "\"" + my_id + "\"/\"" + name.split("채팅방")[1] + "\"", Toast.LENGTH_SHORT).show();
+                out.println(name);
+            }else{
+                Toast.makeText(getApplication(), my_id + "/-1", Toast.LENGTH_SHORT).show();
+                out.println(my_id + "/-1");
+                Toast.makeText(getApplication(), name, Toast.LENGTH_SHORT).show();
+                out.println(name);
+            }
+
+            //out.println("\"" + my_id + "\"");
         } catch (Exception e) {
 
         }
