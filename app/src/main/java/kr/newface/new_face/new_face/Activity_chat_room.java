@@ -166,7 +166,7 @@ public class Activity_chat_room extends AppCompatActivity {
 
 
             if (name.contains("채팅방")){
-                Toast.makeText(getApplication(), "\"" + my_id + "\"/\"" + name.split("채팅방")[1] + "\"", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplication(), my_id + "/" + name.split("채팅방")[1], Toast.LENGTH_SHORT).show();
                 out.println(name);
             }else{
                 Toast.makeText(getApplication(), my_id + "/-1", Toast.LENGTH_SHORT).show();
