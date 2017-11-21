@@ -3,13 +3,65 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="kr.newface.new_face.new_face.chat_room">
+    android:layout_height="match_parent">
 
 
-    <com.github.bassaer.chatmessageview.views.ChatView
-        android:id="@+id/chat_view"
+
+
+    <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true">
+
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="#000000ff"
+                android:paddingRight="0dp">
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="?attr/actionBarSize"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="20dp"
+                    android:text="New Face"
+                    android:textColor="#ffffff"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <Switch
+                    android:id="@+id/switch2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingRight="20dp"
+                    android:gravity="right|center_vertical"
+                    android:text="번역기능  " />
+
+            </RelativeLayout>
+
+
+
+
+        </android.support.design.widget.AppBarLayout>
+
+        <com.github.bassaer.chatmessageview.views.ChatView
+            android:id="@+id/chat_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_anchorGravity="right|bottom"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        </com.github.bassaer.chatmessageview.views.ChatView>
+
+
+    </android.support.design.widget.CoordinatorLayout>
 
 </RelativeLayout>

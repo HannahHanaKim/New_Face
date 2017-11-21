@@ -31,7 +31,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="아이디(학번)"
-                android:inputType="number" />
+                android:inputType="number"
+                android:text="111111111" />
         </android.support.design.widget.TextInputLayout>
 
         <!--  Password Label -->
@@ -46,7 +47,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="비밀번호"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:text="111111" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.v7.widget.AppCompatButton
