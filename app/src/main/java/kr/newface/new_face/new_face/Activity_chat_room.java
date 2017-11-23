@@ -231,12 +231,19 @@ public class Activity_chat_room extends AppCompatActivity {
     @Override
     protected void onDestroy() {
        super.onDestroy();
+
+    }
+
+    @Override
+    public void onBackPressed() {
         try {
             clientSocket.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
+        finish();
     }
+
 
 
 }
