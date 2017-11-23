@@ -127,14 +127,16 @@ public class Activity_chat_room extends AppCompatActivity {
     private Runnable showUpdate = new Runnable() {
         public void run() {
             if (from_server_temp != null){
-                Message receivedMessage = new Message.Builder()
-                        .setUser(you)
-                        .setRightMessage(false)
-                        .setMessageText(from_server_temp)
-                        .build();
+                if (!from_server_temp.split("/")[0].equals(my_id)){
+                    Message receivedMessage = new Message.Builder()
+                            .setUser(you)
+                            .setRightMessage(false)
+                            .setMessageText(from_server_temp.split("/")[2])
+                            .build();
 
-                mChatView.receive(receivedMessage);
-                from_server_temp = null;
+                    mChatView.receive(receivedMessage);
+                    from_server_temp = null;
+                }
             }
         }
     };
@@ -144,7 +146,7 @@ public class Activity_chat_room extends AppCompatActivity {
         getSupportActionBar().setElevation(0);
         try{
             //나중에 켜야됨
-            clientSocket = new Socket("192.9.128.160", 9001);
+            clientSocket = new Socket("192.9.128.170", 9001);
 
             outToServer = new BufferedWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
             inFromServer =  new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
@@ -167,7 +169,7 @@ public class Activity_chat_room extends AppCompatActivity {
 
             if (name.contains("채팅방")){
                 Toast.makeText(getApplication(), my_id + "/" + name.split("채팅방")[1], Toast.LENGTH_SHORT).show();
-                out.println(name);
+                out.println(my_id + "/" + name.split("채팅방")[1]);
             }else{
                 Toast.makeText(getApplication(), my_id + "/-1", Toast.LENGTH_SHORT).show();
                 out.println(my_id + "/-1");
@@ -235,4 +237,17 @@ public class Activity_chat_room extends AppCompatActivity {
 
 
     }
+
+
+    @Override
+    protected void onDestroy() {
+       super.onDestroy();
+        try {
+            clientSocket.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 }

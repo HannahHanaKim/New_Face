@@ -88,7 +88,9 @@ public class Friend_List extends Fragment {
             mListView.setAdapter(mAdapter);
 
             for (int i = 1;i<10;i++){
-                mAdapter.addItem(getResources().getDrawable(R.drawable.profile),"201635812","매칭값 : 71%","취미");
+                mAdapter.addItem(getResources().getDrawable(R.drawable.profile),"201531209","매칭값 : 71%","취미");
+                //mAdapter.addItem(getResources().getDrawable(R.drawable.profile),"201635812","매칭값 : 71%","취미");
+
             }
 
 
