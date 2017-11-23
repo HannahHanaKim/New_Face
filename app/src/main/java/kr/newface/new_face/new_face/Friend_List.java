@@ -194,4 +194,7 @@ public class Friend_List extends Fragment {
         public TextView text;
     }
 
+
+
+
 }
