@@ -17,15 +17,14 @@ public class searchActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
+
         final int[] search = new int[28];
         Button btn = (Button)findViewById(R.id.btn_signup);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /*Intent it = new Intent(searchActivity.this, Activity_login.class);
-                startActivity(it);*/
-                arr = Arrays.toString(search);
-                Toast.makeText(getApplicationContext(),data + " "+arr,Toast.LENGTH_SHORT).show();
+                Intent it = new Intent(searchActivity.this, Activity_login.class);
+                startActivity(it);
             }
         });
 
@@ -86,9 +85,5 @@ public class searchActivity extends AppCompatActivity {
         if(s26.isChecked()){search[25]=1;} else{search[25]=0;}
         if(s27.isChecked()){search[26]=1;} else{search[26]=0;}
         if(s28.isChecked()){search[27]=1;} else{search[27]=0;}
-
-        Intent it = getIntent();
-        data = it.getStringExtra("data");
-        startActivity(it);
     }
 }

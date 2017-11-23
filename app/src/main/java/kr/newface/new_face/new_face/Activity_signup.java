@@ -6,11 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -28,7 +25,6 @@ public class Activity_signup extends AppCompatActivity {
     @BindView(R.id.input_reEnterPassword) EditText _reEnterPasswordText;
     @BindView(R.id.btn_signup) Button _signupButton;
     @BindView(R.id.link_login) TextView _loginLink;
-    String data = null;
 
     ImageView image;
     int count =0;
@@ -50,6 +46,8 @@ public class Activity_signup extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Finish the registration screen and return to the Login activity
+                Intent intentIT = new Intent(Activity_signup.this, Activity_login.class);
+                startActivity(intentIT);
                 finish();
                 overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
             }
@@ -148,18 +146,7 @@ public class Activity_signup extends AppCompatActivity {
         progressDialog.setMessage("Creating Account...");
         progressDialog.show();
 
-        String name = _nameText.getText().toString();
-        String studentId = _studentIdText.getText().toString();
-        String password = _passwordText.getText().toString();
-        String reEnterPassword = _reEnterPasswordText.getText().toString();
-
-
         // TODO: Implement your own signup logic here.
-        String countString = String.valueOf(count);
-        data = countString+" "+_nameText.getText().toString()+" "+_studentIdText.getText().toString()+" "+_passwordText.getText().toString();
-        Intent it = new Intent(this, searchActivity.class);
-        it.putExtra("data", data);
-        startActivity(it);
 
         new android.os.Handler().postDelayed(
                 new Runnable() {
@@ -170,14 +157,13 @@ public class Activity_signup extends AppCompatActivity {
                         // onSignupFailed();
                         progressDialog.dismiss();
                     }
-                }, 1000);
+                }, 2000);
     }
 
 
     public void onSignupSuccess() {
         _signupButton.setEnabled(true);
-        setResult(RESULT_OK, null);
-        Intent it = new Intent(Activity_signup.this, searchActivity.class);
+        Intent it = new Intent(this, searchActivity.class);
         startActivity(it);
     }
 
