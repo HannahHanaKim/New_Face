@@ -13,6 +13,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.PrintWriter;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -25,6 +27,7 @@ public class Activity_signup extends AppCompatActivity {
     @BindView(R.id.input_reEnterPassword) EditText _reEnterPasswordText;
     @BindView(R.id.btn_signup) Button _signupButton;
     @BindView(R.id.link_login) TextView _loginLink;
+    static String send_str = "";
 
     ImageView image;
     int count =0;
@@ -208,6 +211,8 @@ public class Activity_signup extends AppCompatActivity {
         } else {
             _reEnterPasswordText.setError(null);
         }
+
+        send_str = name + " " + address +" "+password+" " +String.valueOf(count);
         return valid;
     }
 }

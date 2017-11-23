@@ -1,28 +1,22 @@
 package kr.newface.new_face.new_face;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Switch;
 import android.widget.Toast;
 
 import com.github.bassaer.chatmessageview.models.Message;
 import com.github.bassaer.chatmessageview.models.User;
-import com.github.bassaer.chatmessageview.utils.ChatBot;
 import com.github.bassaer.chatmessageview.views.ChatView;
-
-import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
@@ -31,23 +25,18 @@ import java.net.Socket;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import cz.msebera.android.httpclient.HttpEntity;
 import cz.msebera.android.httpclient.HttpResponse;
 import cz.msebera.android.httpclient.NameValuePair;
 import cz.msebera.android.httpclient.client.HttpClient;
 import cz.msebera.android.httpclient.client.entity.UrlEncodedFormEntity;
-import cz.msebera.android.httpclient.client.methods.HttpGet;
 import cz.msebera.android.httpclient.client.methods.HttpPost;
 import cz.msebera.android.httpclient.impl.client.DefaultHttpClient;
 import cz.msebera.android.httpclient.message.BasicNameValuePair;
-import cz.msebera.android.httpclient.util.EntityUtils;
 
 import static kr.newface.new_face.new_face.MainActivity.my_id;
-
 
 public class Activity_chat_room extends AppCompatActivity {
 
