@@ -23,8 +23,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="여행"
+                    android:text="Q1. 여행을 할 때 선호하는 방식은?"
                     android:textSize="25sp" />
             </android.support.design.widget.TextInputLayout>
 
@@ -35,7 +34,7 @@
                 android:orientation="horizontal">
 
                 <CheckBox
-                    android:id="@+id/s1"
+                    android:id="@+id/q1_1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -43,7 +42,7 @@
                     android:textSize="20sp" />
 
                 <CheckBox
-                    android:id="@+id/s2"
+                    android:id="@+id/q1_2"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -57,7 +56,7 @@
                 android:orientation="horizontal">
 
                 <CheckBox
-                    android:id="@+id/s3"
+                    android:id="@+id/q1_3"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -65,14 +64,34 @@
                     android:textSize="20sp" />
 
                 <CheckBox
-                    android:id="@+id/s4"
+                    android:id="@+id/q1_4"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="힐링"
                     android:textSize="20sp" />
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
+                <CheckBox
+                    android:id="@+id/q1_no"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="관심없음"
+                    android:textSize="20sp" />
+                <CheckBox
+                    android:id="@+id/q1_all"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="모두 해당"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -82,8 +101,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="영화"
+                    android:text="Q2. 좋아하는 영화 장르는?"
                     android:textSize="25sp" />
             </android.support.design.widget.TextInputLayout>
 
@@ -93,7 +111,7 @@
                 android:orientation="horizontal">
 
                 <CheckBox
-                    android:id="@+id/s5"
+                    android:id="@+id/q2_1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -101,7 +119,7 @@
                     android:textSize="20sp" />
 
                 <CheckBox
-                    android:id="@+id/s6"
+                    android:id="@+id/q2_2"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -114,7 +132,7 @@
                 android:orientation="horizontal">
 
                 <CheckBox
-                    android:id="@+id/s7"
+                    android:id="@+id/q2_3"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -122,7 +140,7 @@
                     android:textSize="20sp" />
 
                 <CheckBox
-                    android:id="@+id/s8"
+                    android:id="@+id/q2_4"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -136,13 +154,41 @@
                 android:orientation="horizontal">
 
                 <CheckBox
-                    android:id="@+id/s9"
+                    android:id="@+id/q2_5"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="판타지"
                     android:textSize="20sp" />
+                <CheckBox
+                    android:id="@+id/q2_6"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="공포"
+                    android:textSize="20sp" />
             </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/q2_no"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="관심없음"
+                android:textSize="20sp" />
+            <CheckBox
+                android:id="@+id/q2_all"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="모두 해당"
+                android:textSize="20sp" />
+        </LinearLayout>
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
@@ -153,8 +199,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="외식"
+                    android:text="Q3. 외식시 중시하는 요소는?"
                     android:textSize="25sp" />
             </android.support.design.widget.TextInputLayout>
 
@@ -164,7 +209,7 @@
                 android:orientation="horizontal">
 
                 <CheckBox
-                    android:id="@+id/s10"
+                    android:id="@+id/q3_1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -172,7 +217,7 @@
                     android:textSize="20sp" />
 
                 <CheckBox
-                    android:id="@+id/s11"
+                    android:id="@+id/q3_2"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -186,12 +231,20 @@
                 android:orientation="horizontal">
 
                 <CheckBox
-                    android:id="@+id/s12"
+                    android:id="@+id/q3_3"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="동행자"
                     android:textSize="20sp" />
+                <CheckBox
+                    android:id="@+id/q3_all"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="모두 해당"
+                    android:textSize="20sp" />
+
 
             </LinearLayout>
 
@@ -204,8 +257,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="스포츠"
+                    android:text="Q4. 좋아하는 스포츠는?"
                     android:textSize="25sp" />
             </android.support.design.widget.TextInputLayout>
 
@@ -215,19 +267,19 @@
                 android:orientation="horizontal">
 
                 <CheckBox
-                    android:id="@+id/s13"
+                    android:id="@+id/q4_1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="구기종목"
+                    android:text="축구"
                     android:textSize="20sp" />
 
                 <CheckBox
-                    android:id="@+id/s14"
+                    android:id="@+id/q4_2"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="수상레저"
+                    android:text="농구"
                     android:textSize="20sp" />
             </LinearLayout>
 
@@ -237,12 +289,60 @@
                 android:orientation="horizontal">
 
                 <CheckBox
-                    android:id="@+id/s15"
+                    android:id="@+id/q4_3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="야구"
+                    android:textSize="20sp" />
+                <CheckBox
+                    android:id="@+id/q4_4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="배구"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/q4_5"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="헬스"
                     android:textSize="20sp" />
+                <CheckBox
+                    android:id="@+id/q4_6"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="수영"
+                    android:textSize="20sp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/q4_no"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="관심없음"
+                    android:textSize="20sp" />
+                <CheckBox
+                    android:id="@+id/q4_all"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="모두 해당"
+                    android:textSize="20sp" />
             </LinearLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -254,8 +354,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="주 활동시간"
+                    android:text="Q5. 선호하는 활동 시간은?"
                     android:textSize="25sp" />
             </android.support.design.widget.TextInputLayout>
 
@@ -265,7 +364,7 @@
                 android:orientation="horizontal">
 
                 <CheckBox
-                    android:id="@+id/s16"
+                    android:id="@+id/q5_1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -273,7 +372,7 @@
                     android:textSize="20sp" />
 
                 <CheckBox
-                    android:id="@+id/s17"
+                    android:id="@+id/q5_2"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -287,7 +386,7 @@
                 android:orientation="horizontal">
 
                 <CheckBox
-                    android:id="@+id/s18"
+                    android:id="@+id/q5_3"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -295,7 +394,7 @@
                     android:textSize="20sp" />
 
                 <CheckBox
-                    android:id="@+id/s19"
+                    android:id="@+id/q5_4"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -312,8 +411,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="기호식품"
+                    android:text="Q6.선호하는 기호 식품은?"
                     android:textSize="30sp" />
             </android.support.design.widget.TextInputLayout>
 
@@ -323,7 +421,7 @@
                 android:orientation="horizontal">
 
                 <CheckBox
-                    android:id="@+id/s20"
+                    android:id="@+id/q6_1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -331,14 +429,55 @@
                     android:textSize="20sp" />
 
                 <CheckBox
-                    android:id="@+id/s21"
+                    android:id="@+id/q6_2"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="담배"
                     android:textSize="20sp" />
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
+                <CheckBox
+                    android:id="@+id/q6_3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="커피"
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/q6_4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="청량음료"
+                    android:textSize="20sp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/q6_no"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="관심없음"
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/q6_all"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="모두 해당"
+                    android:textSize="20sp" />
+            </LinearLayout>
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -348,8 +487,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="활동 선호 장소"
+                    android:text="Q7. 선호하는 활동 장소는?"
                     android:textSize="30sp" />
             </android.support.design.widget.TextInputLayout>
             <LinearLayout
@@ -358,7 +496,7 @@
                 android:orientation="horizontal">
 
                 <CheckBox
-                    android:id="@+id/s22"
+                    android:id="@+id/q7_1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -366,7 +504,7 @@
                     android:textSize="20sp" />
 
                 <CheckBox
-                    android:id="@+id/s23"
+                    android:id="@+id/q7_2"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -383,8 +521,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="일"
+                    android:text="Q8. 선호하는 일 방식은?"
                     android:textSize="30sp" />
             </android.support.design.widget.TextInputLayout>
 
@@ -394,7 +531,7 @@
                 android:orientation="horizontal">
 
                 <CheckBox
-                    android:id="@+id/s24"
+                    android:id="@+id/q8_1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -402,11 +539,141 @@
                     android:textSize="20sp" />
 
                 <CheckBox
-                    android:id="@+id/s25"
+                    android:id="@+id/q8_2"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="그룹"
+                    android:textSize="20sp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/q8_no"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="상관없음"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Q9. 좋아하는 음악 장르는?"
+                    android:textSize="25sp" />
+            </android.support.design.widget.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/q9_1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="클래식"
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/q9_2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="재즈"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/q9_3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="힙합"
+                    android:textSize="20sp" />
+                <CheckBox
+                    android:id="@+id/q9_4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="팝"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+            <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/q9_5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="K-pop"
+                android:textSize="20sp" />
+            <CheckBox
+                android:id="@+id/q9_6"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="발라드"
+                android:textSize="20sp" />
+        </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/q9_7"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="댄스"
+                    android:textSize="20sp" />
+                <CheckBox
+                    android:id="@+id/q9_8"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="블루스"
+                    android:textSize="20sp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/q9_no"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="관심없음"
+                    android:textSize="20sp" />
+                <CheckBox
+                    android:id="@+id/q9_all"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="모두 해당"
                     android:textSize="20sp" />
             </LinearLayout>
 
@@ -419,8 +686,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="게임"
+                    android:text="Q10. 선호하는 게임은?"
                     android:textSize="25sp" />
             </android.support.design.widget.TextInputLayout>
 
@@ -430,7 +696,7 @@
                 android:orientation="horizontal">
 
                 <CheckBox
-                    android:id="@+id/s26"
+                    android:id="@+id/q10_1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -438,7 +704,7 @@
                     android:textSize="20sp" />
 
                 <CheckBox
-                    android:id="@+id/s27"
+                    android:id="@+id/q10_2"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -452,11 +718,39 @@
                 android:orientation="horizontal">
 
                 <CheckBox
-                    android:id="@+id/s28"
+                    android:id="@+id/q10_3"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="플레이스테이션"
+                    android:textSize="20sp" />
+                <CheckBox
+                    android:id="@+id/q10_4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="보드게임"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/q10_no"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="관심없음"
+                    android:textSize="20sp" />
+                <CheckBox
+                    android:id="@+id/q10_all"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="모두 해당"
                     android:textSize="20sp" />
 
             </LinearLayout>

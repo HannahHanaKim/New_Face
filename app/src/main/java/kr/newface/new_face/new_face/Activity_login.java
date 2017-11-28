@@ -1,18 +1,29 @@
 package kr.newface.new_face.new_face;
 
 import android.content.Intent;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.io.BufferedWriter;
+import java.io.OutputStreamWriter;
+import java.net.Socket;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class Activity_login extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
     private static final int REQUEST_SIGNUP = 0;
+    private BufferedWriter outToServer;
+    private Socket clientSocket;
+    private Handler mHandler;
+
 
     @BindView(R.id.input_email) EditText _emailText;
     @BindView(R.id.input_password) EditText _passwordText;
@@ -89,5 +100,22 @@ public class Activity_login extends AppCompatActivity {
     public void onBackPressed() {
         // Disable going back to the MainActivity
         moveTaskToBack(true);
+    }
+    void init(){
+        getSupportActionBar().hide();
+        getSupportActionBar().setElevation(0);
+        try{
+            //나중에 켜야됨
+            clientSocket = new Socket("192.9.128.170", 9001);
+
+            outToServer = new BufferedWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
+            mHandler = new Handler();
+
+
+            //clientSocket.close();
+        }catch (Exception e){
+            Toast.makeText(getApplication(), "서버 오류", Toast.LENGTH_SHORT).show();
+        }
+
     }
 }
