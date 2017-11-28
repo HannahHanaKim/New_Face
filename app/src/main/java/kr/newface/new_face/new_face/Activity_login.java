@@ -2,6 +2,7 @@ package kr.newface.new_face.new_face;
 
 import android.content.Intent;
 import android.os.Handler;
+import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,20 +11,28 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.github.bassaer.chatmessageview.models.Message;
+
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
 import java.net.Socket;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+import static kr.newface.new_face.new_face.MainActivity.my_id;
+
 public class Activity_login extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
     private static final int REQUEST_SIGNUP = 0;
+    private BufferedReader inFromServer;
     private BufferedWriter outToServer;
     private Socket clientSocket;
     private Handler mHandler;
-
+    private String from_server_temp = null;
 
     @BindView(R.id.input_email) EditText _emailText;
     @BindView(R.id.input_password) EditText _passwordText;
@@ -33,9 +42,13 @@ public class Activity_login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
+//이 코드가 없으면 인터넷 통신이 안됨
+        if(android.os.Build.VERSION.SDK_INT > 9) {
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+        }
         ButterKnife.bind(this);
-
+        init();
         _loginButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -44,8 +57,17 @@ public class Activity_login extends AppCompatActivity {
                     return;
                 }
                 else {
-                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                    startActivityForResult(intent, REQUEST_SIGNUP);
+                    try {
+                        PrintWriter out = new PrintWriter(outToServer, true);
+                        out.println("LOGIN");
+                        out.println(_emailText.getText().toString() + " " + _passwordText.getText().toString());
+                        //out.println();
+                    } catch (Exception e) {
+
+                    }
+
+
+
                 }
             }
         });
@@ -102,12 +124,14 @@ public class Activity_login extends AppCompatActivity {
         moveTaskToBack(true);
     }
     void init(){
-        getSupportActionBar().hide();
-        getSupportActionBar().setElevation(0);
+        //Toast.makeText(getApplication(), "여기까지옴", Toast.LENGTH_SHORT).show();
+        //getSupportActionBar().hide();
+        //getSupportActionBar().setElevation(0);
         try{
             //나중에 켜야됨
-            clientSocket = new Socket("192.9.128.170", 9001);
-
+            clientSocket = new Socket("192.9.81.95", 9002);
+            inFromServer =  new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+            checkUpdate.start();
             outToServer = new BufferedWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
             mHandler = new Handler();
             //clientSocket.close();
@@ -116,4 +140,27 @@ public class Activity_login extends AppCompatActivity {
         }
 
     }
+
+    private Thread checkUpdate = new Thread() {
+        public void run() {
+            try {
+                while (true) {
+                    from_server_temp = inFromServer.readLine();
+                    mHandler.post(showUpdate);
+                }
+            } catch (Exception e) {
+                //Log.w("error", "error");
+            }
+        }
+    };
+
+    private Runnable showUpdate = new Runnable() {
+        public void run() {
+            if (from_server_temp != null){
+                Toast.makeText(getApplication(), from_server_temp, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivityForResult(intent, REQUEST_SIGNUP);
+            }
+        }
+    };
 }

@@ -135,7 +135,7 @@ public class Activity_chat_room extends AppCompatActivity {
         getSupportActionBar().setElevation(0);
         try{
             //나중에 켜야됨
-            clientSocket = new Socket("192.9.128.170", 9001);
+            clientSocket = new Socket("192.9.81.159", 9001);
 
             outToServer = new BufferedWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
             inFromServer =  new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
