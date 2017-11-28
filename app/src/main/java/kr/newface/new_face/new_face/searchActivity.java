@@ -269,6 +269,12 @@ public class searchActivity extends AppCompatActivity {
                         q3_3.setChecked(true);
                         q3_all.setChecked(true);
                     }
+                    else{
+                        q3_1.setChecked(false);
+                        q3_2.setChecked(false);
+                        q3_3.setChecked(false);
+                        q3_all.setChecked(false);
+                    }
                 }
             }
         });
