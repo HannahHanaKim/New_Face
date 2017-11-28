@@ -25,7 +25,7 @@ public class searchActivity extends AppCompatActivity {
     String get_str;
     private BufferedWriter outToServer;
     private Socket clientSocket;
-    private Handler mHandler;
+    private Handler mHandler2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
