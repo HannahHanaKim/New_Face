@@ -701,7 +701,7 @@ public class searchActivity extends AppCompatActivity {
                 if(q10_3.isChecked()){q10[2]=1;}else{q10[2]=0;}
                 if(q10_4.isChecked()){q10[3]=1;}else{q10[3]=0;}
                 String arr = transString(q1)+ transString(q2)+ transString(q3)+transString(q4)+transString(q5)+transString(q6)+transString(q7)+transString(q8)+transString(q9)+transString(q10);
-                get_str = get_str+arr;
+                get_str = get_str+" "+arr;
                 Toast.makeText(getApplicationContext(),get_str,Toast.LENGTH_LONG).show();
                 /*try {
                     PrintWriter out = new PrintWriter(outToServer, true);
