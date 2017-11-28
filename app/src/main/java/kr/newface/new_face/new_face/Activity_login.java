@@ -129,7 +129,7 @@ public class Activity_login extends AppCompatActivity {
         //getSupportActionBar().setElevation(0);
         try{
             //나중에 켜야됨
-            clientSocket = new Socket("192.9.81.95", 9002);
+            clientSocket = new Socket("172.30.1.37", 9002);
             inFromServer =  new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
             checkUpdate.start();
             outToServer = new BufferedWriter(new OutputStreamWriter(clientSocket.getOutputStream()));

@@ -24,7 +24,7 @@
         android:layout_height="100dp"
         android:layout_alignTop="@+id/asian_man"
         android:layout_toEndOf="@+id/asian_man"
-        android:layout_marginStart="20dp"
+        android:layout_toStartOf="@+id/white_woman"
         android:scaleType="centerInside"
         android:src="@drawable/asian_woman" />
 
@@ -32,9 +32,9 @@
         android:id="@+id/black_man"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:layout_alignParentEnd="true"
         android:layout_alignTop="@+id/asian_woman"
-        android:layout_toEndOf="@+id/asian_woman"
-        android:layout_marginStart="20dp"
+        android:layout_marginRight="20dp"
         android:scaleType="centerInside"
         android:src="@drawable/black_man" />
 
@@ -54,6 +54,7 @@
         android:layout_height="100dp"
         android:layout_alignStart="@+id/asian_woman"
         android:layout_alignTop="@+id/black_woman"
+        android:layout_toStartOf="@+id/white_woman"
         android:scaleType="centerInside"
         android:src="@drawable/white_man" />
 
