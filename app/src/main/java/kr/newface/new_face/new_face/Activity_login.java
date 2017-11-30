@@ -65,9 +65,6 @@ public class Activity_login extends AppCompatActivity {
                     } catch (Exception e) {
 
                     }
-
-
-
                 }
             }
         });

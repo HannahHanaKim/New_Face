@@ -8,7 +8,7 @@
 
 
 
-    <android.support.design.widget.CoordinatorLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentBottom="true"
@@ -18,7 +18,8 @@
         <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            android:id="@+id/appBarLayout">
 
             <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
@@ -41,19 +42,57 @@
                     android:id="@+id/switch2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:paddingRight="20dp"
                     android:gravity="right|center_vertical"
+                    android:paddingRight="20dp"
                     android:text="번역기능  " />
 
             </RelativeLayout>
 
 
+        </android.support.design.widget.AppBarLayout>
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/appBarLayout"
+            android:id="@+id/appBarLayout2"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="#000000ff"
+                android:paddingRight="0dp">
+
+                <Button
+                    android:id="@+id/button3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentEnd="true"
+                    android:background="?android:attr/panelBackground" />
+
+                <TextView
+                    android:id="@+id/title2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="?attr/actionBarSize"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="20dp"
+                    android:text="추천목록"
+                    android:textColor="#ffffff"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
 
 
         </android.support.design.widget.AppBarLayout>
 
         <com.github.bassaer.chatmessageview.views.ChatView
             android:id="@+id/chat_view"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/appBarLayout2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_anchorGravity="right|bottom"
@@ -62,6 +101,6 @@
         </com.github.bassaer.chatmessageview.views.ChatView>
 
 
-    </android.support.design.widget.CoordinatorLayout>
+    </RelativeLayout>
 
 </RelativeLayout>

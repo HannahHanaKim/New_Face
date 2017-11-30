@@ -74,9 +74,13 @@ public class Chat_List extends Fragment {
         mAdapter = new ListViewAdapter(getActivity());
         mListView.setAdapter(mAdapter);
 
-        for (int i = 1;i<50;i++){
-            mAdapter.addItem(getResources().getDrawable(R.drawable.profile),"채팅방" + i,"참여인원:13명","채팅방 소개");
-        }
+        mAdapter.addItem(getResources().getDrawable(R.drawable.profile),"여행","참여인원:13명","채팅방 소개");
+        mAdapter.addItem(getResources().getDrawable(R.drawable.profile),"영화","참여인원:13명","채팅방 소개");
+        mAdapter.addItem(getResources().getDrawable(R.drawable.profile),"푸드","참여인원:13명","채팅방 소개");
+        mAdapter.addItem(getResources().getDrawable(R.drawable.profile),"스포츠","참여인원:13명","채팅방 소개");
+        mAdapter.addItem(getResources().getDrawable(R.drawable.profile),"음악","참여인원:13명","채팅방 소개");
+        mAdapter.addItem(getResources().getDrawable(R.drawable.profile),"게임","참여인원:13명","채팅방 소개");
+
 
         return view;
     }

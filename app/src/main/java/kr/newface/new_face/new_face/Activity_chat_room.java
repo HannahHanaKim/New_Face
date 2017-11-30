@@ -4,6 +4,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.content.ContextCompat;
@@ -11,7 +12,9 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.bassaer.chatmessageview.models.Message;
@@ -42,7 +45,8 @@ import cz.msebera.android.httpclient.message.BasicNameValuePair;
 import static kr.newface.new_face.new_face.MainActivity.my_id;
 
 public class Activity_chat_room extends AppCompatActivity {
-
+    String url = "";
+    String naver = "";
     private String from_server_temp = null;
     private Handler mHandler;
 
@@ -56,6 +60,7 @@ public class Activity_chat_room extends AppCompatActivity {
 
     @BindView(R.id.switch2) Switch switch2;
     @BindView(R.id.chat_view) ChatView mChatView;
+    @BindView(R.id.title2) TextView recommand;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,6 +73,18 @@ public class Activity_chat_room extends AppCompatActivity {
         name = intent.getExtras().getString("name");
 
         init();
+
+        Button button1 = (Button) findViewById(R.id.button3) ;
+        button1.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                startActivity(intent);
+            }
+        });
+
+
+        출처: http://recipes4dev.tistory.com/55 [개발자를 위한 레시피]
 
         //전송 버튼 눌렀을때
         mChatView.setOnClickSendButtonListener(new View.OnClickListener() {
@@ -153,26 +170,7 @@ public class Activity_chat_room extends AppCompatActivity {
         }
 
 
-        try {
 
-
-            PrintWriter out = new PrintWriter(outToServer, true);
-
-
-            if (name.contains("채팅방")){
-                Toast.makeText(getApplication(), my_id + "/" + name.split("채팅방")[1], Toast.LENGTH_SHORT).show();
-                out.println(my_id + "/" + name.split("채팅방")[1]);
-            }else{
-                Toast.makeText(getApplication(), my_id + "/-1", Toast.LENGTH_SHORT).show();
-                out.println(my_id + "/-1");
-                Toast.makeText(getApplication(), name, Toast.LENGTH_SHORT).show();
-                out.println(name);
-            }
-
-            //out.println("\"" + my_id + "\"");
-        } catch (Exception e) {
-
-        }
 
 
 
@@ -194,6 +192,66 @@ public class Activity_chat_room extends AppCompatActivity {
         //사용자 설정
         me = new User(0, "나", BitmapFactory.decodeResource(getResources(), R.drawable.profile));
         you = new User(1, "상대방", BitmapFactory.decodeResource(getResources(), R.drawable.profile));
+
+        try {
+
+
+            PrintWriter out = new PrintWriter(outToServer, true);
+
+
+            if (name.contains("여행")){
+                naver = gethttp2("https://m.naver.com/include/grid/panel_TRAVEL.shtml");
+                //Toast.makeText(getApplication(), naver, Toast.LENGTH_SHORT).show();
+                String tmp = naver.split("<span class=\"ct_ts\">")[1].split("</span>")[0];
+                url = naver.split("<a href=\"")[1].split("\"")[0];
+                recommand.setText(tmp);
+                out.println(my_id + "/" + "1");
+            }
+            else if (name.contains("영화")){
+                naver = gethttp2("https://m.naver.com/include/grid/panel_MOVIE.shtml");
+                String tmp = naver.split("<span class=\"ct_ts\">")[1].split("</span>")[0];
+                url = naver.split("<a href=\"")[1].split("\"")[0];
+                recommand.setText(tmp);
+                out.println(my_id + "/" + "2");
+            }
+            else if (name.contains("푸드")){
+                naver = gethttp2("https://m.naver.com/include/grid/panel_LIVING.shtml");
+                String tmp = naver.split("<span class=\"ct_ts\">")[1].split("</span>")[0];
+                url = naver.split("<a href=\"")[1].split("\"")[0];
+                recommand.setText(tmp);
+                out.println(my_id + "/" + "3");
+            }
+            else if (name.contains("스포츠")){
+                naver = gethttp2("https://m.naver.com/include/grid/panel_SPORTS.shtml");
+                String tmp = naver.split("<strong class=\"ut_t\">")[1].split("<")[0];
+                url = naver.replace("\t","").replace("\n","").split("<li class=\"ut_item\"><a href=\"")[1].split("</span>")[0];
+                recommand.setText(tmp);
+                out.println(my_id + "/" + "4");
+            }
+            else if (name.contains("게임")){
+                naver = gethttp2("https://m.naver.com/include/grid/panel_GAMEAPP.shtml");
+                String tmp = naver.split("<span class=\"ct_ts\">")[1].split("</span>")[0];
+                url = naver.split("<a href=\"")[1].split("\"")[0];
+                recommand.setText(tmp);
+                out.println(my_id + "/" + "5");
+            }
+            else if (name.contains("음악")){
+                naver = gethttp2("https://m.naver.com/include/grid/panel_MUSIC.shtml");
+                String tmp = naver.split("<span class=\"ct_ts\">")[1].split("</span>")[0];
+                url = naver.split("<a href=\"")[1].split("\"")[0];
+                recommand.setText(tmp);
+                out.println(my_id + "/" + "6");
+            }else{
+                Toast.makeText(getApplication(), my_id + "/-1", Toast.LENGTH_SHORT).show();
+                out.println(my_id + "/-1");
+                Toast.makeText(getApplication(), name, Toast.LENGTH_SHORT).show();
+                out.println(name);
+            }
+
+            //out.println("\"" + my_id + "\"");
+        } catch (Exception e) {
+
+        }
     }
 
     public String gethttp(String sstr1) {
@@ -229,6 +287,38 @@ public class Activity_chat_room extends AppCompatActivity {
 
 
     }
+
+    public String gethttp2(String sstr1) {
+        try {
+
+
+
+            HttpClient client = new DefaultHttpClient();
+            HttpPost post = new HttpPost();
+            post.setURI(new URI(sstr1));
+            //post.setHeader("HOST","openapi.naver.com");
+            //post.setHeader("Content-Type","application/x-www-form-urlencoded; charset=UTF-8");
+            //post.setHeader("X-Naver-Client-Id","I7xF1aoEPAUZElXdHSH1");
+            //post.setHeader("X-Naver-Client-Secret","MhLdSaa8lj");
+            //post.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+
+            HttpResponse resp = client.execute(post);
+            BufferedReader br = new BufferedReader(new InputStreamReader(resp.getEntity().getContent()));
+            String str = null;
+            StringBuilder sb = new StringBuilder();
+            while ((str = br.readLine()) != null) {
+                sb.append(str).append("\n");
+            }
+            br.close();
+            return sb.toString();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "";
+        }
+
+
+    }
+
 
 
     @Override
