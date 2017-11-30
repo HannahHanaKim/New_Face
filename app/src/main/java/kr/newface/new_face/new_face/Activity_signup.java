@@ -218,6 +218,7 @@ public class Activity_signup extends AppCompatActivity {
             valid = false;
         }
         else{
+            introduct = introduct.replace(" ","_");
             _introductText.setError(null);
         }
 
