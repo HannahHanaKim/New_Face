@@ -8,8 +8,7 @@
     android:paddingTop="0dp"
     android:paddingBottom="0dp"
     android:background="#fafafa"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.jungcode.jm2.jm2.MainActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <RelativeLayout
         android:layout_width="fill_parent"
@@ -22,7 +21,7 @@
 
         <ImageView
             android:id="@+id/image"
-            android:layout_width="0dp"
+            android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="15dp"
@@ -86,7 +85,6 @@
                 android:layout_marginLeft="13dp"
                 android:layout_marginRight="13dp"
                 android:layout_toStartOf="@+id/button2"
-                android:ellipsize="marquee"
                 android:focusable="true"
                 android:focusableInTouchMode="true"
                 android:lines="1"
@@ -108,7 +106,6 @@
                 android:layout_marginLeft="13dp"
                 android:layout_marginRight="13dp"
                 android:layout_toStartOf="@+id/button2"
-                android:ellipsize="marquee"
                 android:focusable="true"
                 android:focusableInTouchMode="true"
                 android:lines="1"

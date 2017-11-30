@@ -83,9 +83,6 @@ public class Activity_chat_room extends AppCompatActivity {
             }
         });
 
-
-        출처: http://recipes4dev.tistory.com/55 [개발자를 위한 레시피]
-
         //전송 버튼 눌렀을때
         mChatView.setOnClickSendButtonListener(new View.OnClickListener() {
             @Override
@@ -155,7 +152,7 @@ public class Activity_chat_room extends AppCompatActivity {
         getSupportActionBar().setElevation(0);
         try{
             //나중에 켜야됨
-            clientSocket = new Socket("192.9.13.236", 9001);
+            clientSocket = new Socket("192.9.12.225", 9001);
 
             outToServer = new BufferedWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
             inFromServer =  new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));

@@ -78,6 +78,7 @@ public class Activity_login extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Start the Signup activity
+                searchActivity.signup_button_check = 0;
                 Intent intent = new Intent(getApplicationContext(), Activity_signup.class);
                 startActivityForResult(intent, REQUEST_SIGNUP);
                 overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
@@ -130,7 +131,7 @@ public class Activity_login extends AppCompatActivity {
         //getSupportActionBar().setElevation(0);
         try{
             //나중에 켜야됨
-            clientSocket = new Socket("192.9.13.79", 9002);
+            clientSocket = new Socket("192.9.12.196", 9002);
             inFromServer =  new BufferedReader(new InputStreamReader(clientSocket.getInputStream(),"EUC-KR"));
             checkUpdate.start();
             outToServer = new BufferedWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
@@ -158,9 +159,14 @@ public class Activity_login extends AppCompatActivity {
         public void run() {
             if (from_server_temp != null){
                 Toast.makeText(getApplication(), from_server_temp, Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivityForResult(intent, REQUEST_SIGNUP);
-                finish();
+                if(from_server_temp.equalsIgnoreCase("error")){
+                    Toast.makeText(getApplicationContext(),"로그인 실패", Toast.LENGTH_LONG).show();
+                }
+                else {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivityForResult(intent, REQUEST_SIGNUP);
+                    finish();
+                }
             }
         }
     };

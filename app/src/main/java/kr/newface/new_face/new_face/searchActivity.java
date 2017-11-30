@@ -29,6 +29,7 @@ public class searchActivity extends AppCompatActivity {
     private Handler mHandler;
     private String from_server_temp = null;
     private static final int REQUEST_SIGNUP = 0;
+    static int signup_button_check = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -705,6 +706,12 @@ public class searchActivity extends AppCompatActivity {
                     q10_no.setChecked(false);
                     q10_all.setChecked(false);}}});
         Button btn = (Button)findViewById(R.id.btn_signup);
+        if(signup_button_check==0){
+            btn.setEnabled(true);
+        }
+        else{
+            btn.setEnabled(false);
+        }
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -760,6 +767,7 @@ public class searchActivity extends AppCompatActivity {
                 } catch (Exception e) {
 
                 }
+                signup_button_check=1;
             }
         });
 
@@ -767,7 +775,7 @@ public class searchActivity extends AppCompatActivity {
     void init(){
         try{
             //나중에 켜야됨
-            clientSocket = new Socket("192.9.13.79", 9002);
+            clientSocket = new Socket("192.9.12.196", 9002);
             inFromServer =  new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
             checkUpdate.start();
             outToServer = new BufferedWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
