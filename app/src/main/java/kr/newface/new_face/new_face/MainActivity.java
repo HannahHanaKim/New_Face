@@ -25,7 +25,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     //static String my_id = "201635812";
-    static String my_id = "201635812";
+    static String my_id = Activity_login.studentID;
     private TabLayout tabLayout;
     private ViewPager viewPager;
 

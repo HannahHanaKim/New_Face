@@ -33,6 +33,7 @@ public class Activity_login extends AppCompatActivity {
     private Socket clientSocket;
     private Handler mHandler;
     private String from_server_temp = null;
+    static String studentID;
 
     @BindView(R.id.input_email) EditText _emailText;
     @BindView(R.id.input_password) EditText _passwordText;
@@ -61,6 +62,7 @@ public class Activity_login extends AppCompatActivity {
                         PrintWriter out = new PrintWriter(outToServer, true);
                         out.println("LOGIN");
                         out.println(_emailText.getText().toString() + " " + _passwordText.getText().toString());
+
                         //out.println();
                     } catch (Exception e) {
 
@@ -91,6 +93,7 @@ public class Activity_login extends AppCompatActivity {
             _emailText.setError("학번을 입력해주십시오");
             valid = false;
         } else {
+            studentID = name;
             _emailText.setError(null);
         }
 
