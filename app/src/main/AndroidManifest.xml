@@ -21,6 +21,5 @@
         <activity android:name=".Activity_signup" android:theme="@style/AppTheme.Dark" android:windowSoftInputMode="stateAlwaysHidden" />
         <activity android:name=".searchActivity" android:theme="@style/AppTheme.Dark" android:windowSoftInputMode="stateAlwaysHidden" />
         <activity android:name=".MainActivity"/>
-        <activity android:name=".Activity_character" android:windowSoftInputMode="stateAlwaysHidden"/>
     </application>
 </manifest>

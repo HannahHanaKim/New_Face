@@ -135,10 +135,9 @@ public class Activity_login extends AppCompatActivity {
             outToServer = new BufferedWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
             mHandler = new Handler();
             //clientSocket.close();
-        }catch (Exception e){
+        }catch (Exception e) {
             Toast.makeText(getApplication(), "서버 오류", Toast.LENGTH_SHORT).show();
         }
-
     }
 
     private Thread checkUpdate = new Thread() {
