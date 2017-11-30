@@ -1,5 +1,6 @@
 package kr.newface.new_face.new_face;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.StrictMode;
@@ -26,6 +27,7 @@ import butterknife.ButterKnife;
 import static kr.newface.new_face.new_face.MainActivity.my_id;
 
 public class Activity_login extends AppCompatActivity {
+    public static Activity fa;
     private static final String TAG = "LoginActivity";
     private static final int REQUEST_SIGNUP = 0;
     private BufferedReader inFromServer;
@@ -44,6 +46,7 @@ public class Activity_login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 //이 코드가 없으면 인터넷 통신이 안됨
+        fa = this;
         if(android.os.Build.VERSION.SDK_INT > 9) {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
