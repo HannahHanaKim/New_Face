@@ -62,7 +62,6 @@ public class Activity_login extends AppCompatActivity {
                         PrintWriter out = new PrintWriter(outToServer, true);
                         out.println("LOGIN");
                         out.println(_emailText.getText().toString() + " " + _passwordText.getText().toString());
-
                         //out.println();
                     } catch (Exception e) {
 
@@ -78,7 +77,6 @@ public class Activity_login extends AppCompatActivity {
                 // Start the Signup activity
                 Intent intent = new Intent(getApplicationContext(), Activity_signup.class);
                 startActivityForResult(intent, REQUEST_SIGNUP);
-                finish();
                 overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
             }
         });
@@ -159,6 +157,7 @@ public class Activity_login extends AppCompatActivity {
                 Toast.makeText(getApplication(), from_server_temp, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivityForResult(intent, REQUEST_SIGNUP);
+                finish();
             }
         }
     };

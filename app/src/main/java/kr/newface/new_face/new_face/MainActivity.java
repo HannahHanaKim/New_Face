@@ -25,7 +25,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     //static String my_id = "201635812";
-    static String my_id = Activity_login.studentID;
+    static String my_id = Activity_login.studentID;//로그인 성공 시 채팅방 studentID를 로그인 했던 걸로 변경
     private TabLayout tabLayout;
     private ViewPager viewPager;
 
@@ -116,8 +116,8 @@ public class MainActivity extends AppCompatActivity {
             return null;
         }
     }
-   /* @Override
-    *//*public boolean onKeyDown(int keyCode, KeyEvent event) {
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
         switch (keyCode){
             case KeyEvent.KEYCODE_BACK:
                 new AlertDialog.Builder(this)
@@ -134,7 +134,6 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onKeyDown(keyCode, event);
     }
-*/
     //앱 꺼졌을때
     @Override
     public void onDestroy() {
