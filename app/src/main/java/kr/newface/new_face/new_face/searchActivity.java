@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
@@ -21,18 +22,19 @@ import java.util.Arrays;
 import static kr.newface.new_face.new_face.MainActivity.my_id;
 
 public class searchActivity extends AppCompatActivity {
-    int[] search ;
     String get_str;
+    private BufferedReader inFromServer;
     private BufferedWriter outToServer;
     private Socket clientSocket;
     private Handler mHandler;
-
+    private String from_server_temp = null;
+    private static final int REQUEST_SIGNUP = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
-        //init();
+        init();
         final int[] q1 = new int[4];
         final int[] q2 = new int[6];
         final int[] q3 = new int[3];
@@ -700,32 +702,31 @@ public class searchActivity extends AppCompatActivity {
                 if(q9_4.isChecked()){q9[3]=1;}else{q9[3]=0;}
                 if(q9_5.isChecked()){q9[4]=1;}else{q9[4]=0;}
                 if(q9_6.isChecked()){q9[5]=1;}else{q9[5]=0;}
-                if(q9_7.isChecked()){q9[4]=1;}else{q9[6]=0;}
-                if(q9_8.isChecked()){q9[5]=1;}else{q9[7]=0;}
+                if(q9_7.isChecked()){q9[6]=1;}else{q9[6]=0;}
+                if(q9_8.isChecked()){q9[7]=1;}else{q9[7]=0;}
                 if(q10_1.isChecked()){q10[0]=1;}else{q10[0]=0;}
                 if(q10_2.isChecked()){q10[1]=1;}else{q10[1]=0;}
                 if(q10_3.isChecked()){q10[2]=1;}else{q10[2]=0;}
                 if(q10_4.isChecked()){q10[3]=1;}else{q10[3]=0;}
                 String arr = transString(q1)+ transString(q2)+ transString(q3)+transString(q4)+transString(q5)+transString(q6)+transString(q7)+transString(q8)+transString(q9)+transString(q10);
                 get_str = get_str+" "+arr;
-                Toast.makeText(getApplicationContext(),get_str,Toast.LENGTH_LONG).show();
-                /*try {
+                try {
                     PrintWriter out = new PrintWriter(outToServer, true);
+                    out.println("sign_up");
                     out.println(get_str);
-                    //out.println("\"" + my_id + "\"");
-                } catch (Exception e) {}
-                Intent it = new Intent(searchActivity.this, Activity_login.class);
-                startActivity(it);*/
+                } catch (Exception e) {
+
+                }
             }
         });
 
     }
     void init(){
-        //getSupportActionBar().hide();
-        //getSupportActionBar().setElevation(0);
         try{
             //나중에 켜야됨
             clientSocket = new Socket("192.9.13.79", 9002);
+            inFromServer =  new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+            checkUpdate.start();
             outToServer = new BufferedWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
             mHandler = new Handler();
             //clientSocket.close();
@@ -740,4 +741,26 @@ public class searchActivity extends AppCompatActivity {
         }
         return arrString;
     }
+    private Thread checkUpdate = new Thread() {
+        public void run() {
+            try {
+                while (true) {
+                    from_server_temp = inFromServer.readLine();
+                    mHandler.post(showUpdate);
+                }
+            } catch (Exception e) {
+                //Log.w("error", "error");
+            }
+        }
+    };
+    private Runnable showUpdate = new Runnable() {
+        public void run() {
+            if (from_server_temp != null){
+                Toast.makeText(getApplication(), from_server_temp, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getApplicationContext(), Activity_login.class);
+                startActivityForResult(intent, REQUEST_SIGNUP);
+            }
+        }
+    };
+
 }
