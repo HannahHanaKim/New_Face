@@ -148,6 +148,20 @@
                 android:hint="비밀번호 확인"
                 android:inputType="textPassword" />
         </android.support.design.widget.TextInputLayout>
+        <!--자기소개-->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp">
+
+            <EditText
+                android:id="@+id/input_introduct"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="자기소개"
+                android:inputType="textPersonName" />
+        </android.support.design.widget.TextInputLayout>
 
         <!-- Signup Button -->
         <android.support.v7.widget.AppCompatButton

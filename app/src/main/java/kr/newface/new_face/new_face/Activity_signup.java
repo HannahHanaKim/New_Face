@@ -29,6 +29,7 @@ public class Activity_signup extends AppCompatActivity {
     @BindView(R.id.input_reEnterPassword) EditText _reEnterPasswordText;
     @BindView(R.id.btn_signup) Button _signupButton;
     @BindView(R.id.link_login) TextView _loginLink;
+    @BindView(R.id.input_introduct) EditText _introductText;
     static String send_str = "";
 
     ImageView image;
@@ -173,8 +174,6 @@ public class Activity_signup extends AppCompatActivity {
     }
 
     public void onSignupFailed() {
-        Toast.makeText(getBaseContext(), "Login failed", Toast.LENGTH_LONG).show();
-
         _signupButton.setEnabled(true);
     }
 
@@ -185,6 +184,7 @@ public class Activity_signup extends AppCompatActivity {
         String address = _studentIdText.getText().toString();
         String password = _passwordText.getText().toString();
         String reEnterPassword = _reEnterPasswordText.getText().toString();
+        String introduct = _introductText.getText().toString();
 
         if (name.isEmpty() || name.length() < 2) {
             _nameText.setError("2자 이상이어야 합니다.");
@@ -213,8 +213,15 @@ public class Activity_signup extends AppCompatActivity {
         } else {
             _reEnterPasswordText.setError(null);
         }
+        if(introduct.isEmpty() || introduct.length() >20){
+            _introductText.setError("20자 이하로 작성하여 주십시오");
+            valid = false;
+        }
+        else{
+            _introductText.setError(null);
+        }
 
-        send_str = name + " " + address +" "+password+" " +String.valueOf(count);
+        send_str = name + " " + address +" "+password+" " +String.valueOf(count) + " " + introduct;
         return valid;
     }
 }

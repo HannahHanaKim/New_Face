@@ -4,10 +4,13 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     tools:context="kr.newface.new_face.new_face.searchActivity">
-    //액티비티 서치에서 에뮬레이터로 실행시 중앙에 공백이 크게 있지만 일반 폰에서는 멀쩡하게 잘 돌아감.
+
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:paddingTop="10sp"
+        android:paddingLeft="10sp"
+        android:paddingRight="10sp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -25,12 +28,17 @@
                     android:layout_height="wrap_content"
                     android:text="Q1. 여행을 할 때 선호하는 방식은?"
                     android:textSize="25sp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"/>
             </android.support.design.widget.TextInputLayout>
 
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingLeft="20sp"
                 android:orientation="horizontal">
 
                 <CheckBox
@@ -53,6 +61,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingLeft="20sp"
                 android:orientation="horizontal">
 
                 <CheckBox
@@ -74,6 +83,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingLeft="20sp"
                 android:orientation="horizontal">
 
                 <CheckBox
@@ -97,17 +107,25 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:layout_marginTop="8dp">
-
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Q2. 좋아하는 영화 장르는?"
                     android:textSize="25sp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"/>
             </android.support.design.widget.TextInputLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingLeft="20sp"
                 android:orientation="horizontal">
 
                 <CheckBox
@@ -129,6 +147,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingLeft="20sp"
                 android:orientation="horizontal">
 
                 <CheckBox
@@ -151,6 +170,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingLeft="20sp"
                 android:orientation="horizontal">
 
                 <CheckBox
@@ -172,6 +192,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingLeft="20sp"
             android:orientation="horizontal">
 
             <CheckBox
@@ -195,17 +216,25 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:layout_marginTop="8dp">
-
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Q3. 외식시 중시하는 요소는?"
                     android:textSize="25sp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"/>
             </android.support.design.widget.TextInputLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingLeft="20sp"
                 android:orientation="horizontal">
 
                 <CheckBox
@@ -228,6 +257,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingLeft="20sp"
                 android:orientation="horizontal">
 
                 <CheckBox
@@ -253,17 +283,25 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:layout_marginTop="8dp">
-
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Q4. 좋아하는 스포츠는?"
                     android:textSize="25sp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"/>
             </android.support.design.widget.TextInputLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingLeft="20sp"
                 android:orientation="horizontal">
 
                 <CheckBox
@@ -286,6 +324,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingLeft="20sp"
                 android:orientation="horizontal">
 
                 <CheckBox
@@ -307,6 +346,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingLeft="20sp"
                 android:orientation="horizontal">
 
                 <CheckBox
@@ -327,6 +367,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingLeft="20sp"
                 android:orientation="horizontal">
 
                 <CheckBox
@@ -350,15 +391,23 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:layout_marginTop="8dp">
-
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Q5. 선호하는 활동 시간은?"
                     android:textSize="25sp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"/>
             </android.support.design.widget.TextInputLayout>
 
             <LinearLayout
+                android:paddingLeft="20sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -381,6 +430,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:paddingLeft="20sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -407,15 +457,19 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:layout_marginTop="8dp">
-
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Q6.선호하는 기호 식품은?"
-                    android:textSize="30sp" />
+                    android:textSize="25sp" />
             </android.support.design.widget.TextInputLayout>
 
             <LinearLayout
+                android:paddingLeft="20sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -425,7 +479,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="음주"
+                    android:text="술"
                     android:textSize="20sp" />
 
                 <CheckBox
@@ -437,6 +491,7 @@
                     android:textSize="20sp" />
             </LinearLayout>
             <LinearLayout
+                android:paddingLeft="20sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -458,6 +513,7 @@
                     android:textSize="20sp" />
             </LinearLayout>
             <LinearLayout
+                android:paddingLeft="20sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -483,14 +539,22 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:layout_marginTop="8dp">
-
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Q7. 선호하는 활동 장소는?"
-                    android:textSize="30sp" />
+                    android:textSize="25sp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"/>
             </android.support.design.widget.TextInputLayout>
             <LinearLayout
+                android:paddingLeft="20sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -517,15 +581,22 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:layout_marginTop="8dp">
-
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Q8. 선호하는 일 방식은?"
-                    android:textSize="30sp" />
+                    android:textSize="25sp" /><TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="10sp"/>
             </android.support.design.widget.TextInputLayout>
 
             <LinearLayout
+                android:paddingLeft="20sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -547,6 +618,7 @@
                     android:textSize="20sp" />
             </LinearLayout>
             <LinearLayout
+                android:paddingLeft="20sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -565,15 +637,23 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:layout_marginTop="8dp">
-
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Q9. 좋아하는 음악 장르는?"
                     android:textSize="25sp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"/>
             </android.support.design.widget.TextInputLayout>
 
             <LinearLayout
+                android:paddingLeft="20sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -596,6 +676,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:paddingLeft="20sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -617,6 +698,7 @@
 
             </LinearLayout>
             <LinearLayout
+                android:paddingLeft="20sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -637,6 +719,7 @@
                 android:textSize="20sp" />
         </LinearLayout>
             <LinearLayout
+                android:paddingLeft="20sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -657,6 +740,7 @@
                     android:textSize="20sp" />
             </LinearLayout>
             <LinearLayout
+                android:paddingLeft="20sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -682,15 +766,23 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:layout_marginTop="8dp">
-
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Q10. 선호하는 게임은?"
                     android:textSize="25sp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"/>
             </android.support.design.widget.TextInputLayout>
 
             <LinearLayout
+                android:paddingLeft="20sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -713,6 +805,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:paddingLeft="20sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -734,6 +827,7 @@
 
             </LinearLayout>
             <LinearLayout
+                android:paddingLeft="20sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -762,7 +856,7 @@
                 android:layout_marginBottom="24dp"
                 android:layout_marginTop="24dp"
                 android:padding="12dp"
-                android:text="Create Account" />
+                android:text="가입" />
 
         </LinearLayout>
     </ScrollView>

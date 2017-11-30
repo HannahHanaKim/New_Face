@@ -169,6 +169,12 @@ public class searchActivity extends AppCompatActivity {
                         q1_no.setChecked(false);
                         q1_all.setChecked(true);
                     }
+                    else{
+                        q1_1.setChecked(false);
+                        q1_2.setChecked(false);
+                        q1_3.setChecked(false);
+                        q1_4.setChecked(false);
+                    }
                 }
             }
         });
@@ -202,6 +208,14 @@ public class searchActivity extends AppCompatActivity {
                         q2_6.setChecked(true);
                         q2_all.setChecked(true);
                         q2_no.setChecked(false);
+                    }
+                    else{
+                        q2_1.setChecked(false);
+                        q2_2.setChecked(false);
+                        q2_3.setChecked(false);
+                        q2_4.setChecked(false);
+                        q2_5.setChecked(false);
+                        q2_6.setChecked(false);
                     }
                 }
             }
@@ -334,6 +348,13 @@ public class searchActivity extends AppCompatActivity {
                         q4_6.setChecked(true);
                         q4_no.setChecked(false);
                         q4_all.setChecked(true);
+                    }else{
+                        q4_1.setChecked(false);
+                        q4_2.setChecked(false);
+                        q4_3.setChecked(false);
+                        q4_4.setChecked(false);
+                        q4_5.setChecked(false);
+                        q4_6.setChecked(false);
                     }
                 }
             }
@@ -421,6 +442,12 @@ public class searchActivity extends AppCompatActivity {
                         q6_all.setChecked(true);
                         q6_no.setChecked(false);
                     }
+                    else{
+                        q6_1.setChecked(false);
+                        q6_2.setChecked(false);
+                        q6_3.setChecked(false);
+                        q6_4.setChecked(false);
+                    }
                 }
             }
         });
@@ -466,8 +493,8 @@ public class searchActivity extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if(compoundButton.getId()==R.id.q8_no){
                     if(q8_no.isChecked()){
-                        q8_1.setChecked(false);
-                        q8_2.setChecked(false);
+                        q8_1.setChecked(true);
+                        q8_2.setChecked(true);
                         q8_no.setChecked(true);
                     }
                 }
@@ -523,6 +550,16 @@ public class searchActivity extends AppCompatActivity {
                         q9_8.setChecked(true);
                         q9_all.setChecked(true);
                         q9_no.setChecked(false);
+                    }
+                    else{
+                        q9_1.setChecked(false);
+                        q9_2.setChecked(false);
+                        q9_3.setChecked(false);
+                        q9_4.setChecked(false);
+                        q9_5.setChecked(false);
+                        q9_6.setChecked(false);
+                        q9_7.setChecked(false);
+                        q9_8.setChecked(false);
                     }
                 }
             }
@@ -625,6 +662,12 @@ public class searchActivity extends AppCompatActivity {
                         q10_4.setChecked(true);
                         q10_no.setChecked(false);
                         q10_all.setChecked(true);
+                    }
+                    else{
+                        q10_1.setChecked(false);
+                        q10_2.setChecked(false);
+                        q10_3.setChecked(false);
+                        q10_4.setChecked(false);
                     }
                 }
             }
