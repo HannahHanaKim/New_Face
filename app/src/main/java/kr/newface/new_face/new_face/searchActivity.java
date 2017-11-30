@@ -721,8 +721,8 @@ public class searchActivity extends AppCompatActivity {
 
     }
     void init(){
-        getSupportActionBar().hide();
-        getSupportActionBar().setElevation(0);
+        //getSupportActionBar().hide();
+        //getSupportActionBar().setElevation(0);
         try{
             //나중에 켜야됨
             clientSocket = new Socket("192.9.13.79", 9002);
