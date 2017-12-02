@@ -16,6 +16,7 @@ public class Table_Cell {
     public String name;
     public String num;
     public String text;
+    public String id;
 
     public static final Comparator<Table_Cell> ALPHA_COMPARATOR = new Comparator<Table_Cell>() {
         private final Collator sCollator = Collator.getInstance();

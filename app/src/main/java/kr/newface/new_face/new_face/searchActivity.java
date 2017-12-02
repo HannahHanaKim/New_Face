@@ -19,6 +19,7 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Arrays;
 
+import static kr.newface.new_face.new_face.Activity_login.login_ip;
 import static kr.newface.new_face.new_face.MainActivity.my_id;
 
 public class searchActivity extends AppCompatActivity {
@@ -775,7 +776,7 @@ public class searchActivity extends AppCompatActivity {
     void init(){
         try{
             //나중에 켜야됨
-            clientSocket = new Socket("192.9.12.196", 9002);
+            clientSocket = new Socket(login_ip, 9002);
             inFromServer =  new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
             checkUpdate.start();
             outToServer = new BufferedWriter(new OutputStreamWriter(clientSocket.getOutputStream()));

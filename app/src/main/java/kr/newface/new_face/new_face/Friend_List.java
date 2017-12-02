@@ -33,6 +33,8 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 
+import static kr.newface.new_face.new_face.Activity_login.my_frineds;
+
 /**
  * Created by User on 2017-10-27.
  */
@@ -87,13 +89,23 @@ public class Friend_List extends Fragment {
             mAdapter = new ListViewAdapter(getActivity());
             mListView.setAdapter(mAdapter);
 
-            for (int i = 1;i<10;i++){
-                //mAdapter.addItem(getResources().getDrawable(R.drawable.profile),"201531209","매칭값 : 71%","취미");
-                mAdapter.addItem(getResources().getDrawable(R.drawable.profile),"201531209","매칭값 : 71%","취미");
+            Drawable[] image_p = {getResources().getDrawable(R.drawable.asian_man),getResources().getDrawable(R.drawable.asian_woman),getResources().getDrawable(R.drawable.black_man),
+                    getResources().getDrawable(R.drawable.black_woman),getResources().getDrawable(R.drawable.white_man),getResources().getDrawable(R.drawable.white_woman)};
 
+            String[] f_splt = my_frineds.split("/");
+
+            for (int i = 1 ;i< f_splt.length;i++){
+                String[] f_splt2 = f_splt[i].split(" ");
+                String photo = f_splt2[3];
+                String name = f_splt2[1];
+                String code = f_splt2[2];
+                String str = f_splt2[4].replace("_"," ");
+                String point = f_splt2[5].replace(".","_");
+                if (point.contains("_")){
+                    point = point.split("_")[0];
+                }
+                mAdapter.addItem(image_p[Integer.valueOf(photo)-1],name ,"매칭값:" + point + "%",str,code);
             }
-
-
 
 
             return view;
@@ -155,7 +167,7 @@ public class Friend_List extends Fragment {
                 public void onClick(View v) {
                     //friend = mData.name;
                     Intent intent1 = new Intent(getActivity(),Activity_chat_room.class);
-                    intent1.putExtra("name", mData.name);
+                    intent1.putExtra("name", mData.id);
                     startActivity(intent1);
                 }
 
@@ -164,14 +176,14 @@ public class Friend_List extends Fragment {
             return convertView;
         }
 
-        public void addItem(Drawable image, String name, String num , String text){
+        public void addItem(Drawable image, String name, String num , String text,String id){
             Table_Cell addInfo = null;
             addInfo = new Table_Cell();
             addInfo.image = image;
             addInfo.name = name;
             addInfo.num = num;
             addInfo.text = text;
-
+            addInfo.id = id;
             mListData.add(addInfo);
         }
         public void remove(int position){
@@ -192,6 +204,7 @@ public class Friend_List extends Fragment {
         public TextView name;
         public TextView num;
         public TextView text;
+        public TextView id;
     }
 
 

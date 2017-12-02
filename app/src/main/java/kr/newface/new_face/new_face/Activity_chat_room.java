@@ -2,8 +2,11 @@ package kr.newface.new_face.new_face;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -42,6 +45,8 @@ import cz.msebera.android.httpclient.client.methods.HttpPost;
 import cz.msebera.android.httpclient.impl.client.DefaultHttpClient;
 import cz.msebera.android.httpclient.message.BasicNameValuePair;
 
+import static kr.newface.new_face.new_face.Activity_login.chat_ip;
+import static kr.newface.new_face.new_face.Activity_login.my_frineds;
 import static kr.newface.new_face.new_face.MainActivity.my_id;
 
 public class Activity_chat_room extends AppCompatActivity {
@@ -58,6 +63,11 @@ public class Activity_chat_room extends AppCompatActivity {
     User you;
     String name;
 
+
+
+    String photo = "";
+    String code;
+
     @BindView(R.id.switch2) Switch switch2;
     @BindView(R.id.chat_view) ChatView mChatView;
     @BindView(R.id.title2) TextView recommand;
@@ -72,14 +82,22 @@ public class Activity_chat_room extends AppCompatActivity {
         Intent intent = getIntent();
         name = intent.getExtras().getString("name");
 
+
+
+
         init();
 
         Button button1 = (Button) findViewById(R.id.button3) ;
         button1.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-                startActivity(intent);
+                try{
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                    startActivity(intent);
+                }catch (Exception e){
+                    Toast.makeText(getApplication(), "오류", Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
 
@@ -110,7 +128,7 @@ public class Activity_chat_room extends AppCompatActivity {
                 }
 
 
-                Toast.makeText(getApplication(), temp_str, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplication(), temp_str, Toast.LENGTH_SHORT).show();
                 mChatView.setInputText("");
             }
 
@@ -134,6 +152,32 @@ public class Activity_chat_room extends AppCompatActivity {
         public void run() {
             if (from_server_temp != null){
                 if (!from_server_temp.split("/")[0].equals(my_id)){
+
+                    photo = "2";
+                    String get_code = from_server_temp.split("/")[0];
+                    code = get_code;
+                    String[] f_splt = my_frineds.split("/");
+                    for (int i = 1 ;i< f_splt.length;i++){
+                        String[] f_splt2 = f_splt[i].split(" ");
+                        if (get_code.equals(f_splt2[2])){
+                            photo = f_splt2[3];
+                            code = f_splt2[1];
+                            break;
+                        }
+
+
+                    }
+
+                    Drawable[] image_p = {getResources().getDrawable(R.drawable.asian_man),getResources().getDrawable(R.drawable.asian_woman),getResources().getDrawable(R.drawable.black_man),
+                            getResources().getDrawable(R.drawable.black_woman),getResources().getDrawable(R.drawable.white_man),getResources().getDrawable(R.drawable.white_woman)};
+
+                    //Bitmap icon = BitmapFactory.decodeResource(getResources(),image_p[Integer.valueOf(photo)-1]);
+                    Bitmap bitmap = ((BitmapDrawable)image_p[Integer.valueOf(photo)-1]).getBitmap();
+
+                    you = new User(1, code, bitmap);
+
+                    //Toast.makeText(getApplication(), from_server_temp, Toast.LENGTH_SHORT).show();
+
                     Message receivedMessage = new Message.Builder()
                             .setUser(you)
                             .setRightMessage(false)
@@ -152,10 +196,10 @@ public class Activity_chat_room extends AppCompatActivity {
         getSupportActionBar().setElevation(0);
         try{
             //나중에 켜야됨
-            clientSocket = new Socket("192.9.12.225", 9001);
+            clientSocket = new Socket(chat_ip, 9001);
 
-            outToServer = new BufferedWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
-            inFromServer =  new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+            outToServer = new BufferedWriter(new OutputStreamWriter(clientSocket.getOutputStream(),"EUC-KR"));
+            inFromServer =  new BufferedReader(new InputStreamReader(clientSocket.getInputStream(),"EUC-KR"));
 
             checkUpdate.start();
             mHandler = new Handler();
@@ -239,9 +283,10 @@ public class Activity_chat_room extends AppCompatActivity {
                 recommand.setText(tmp);
                 out.println(my_id + "/" + "6");
             }else{
-                Toast.makeText(getApplication(), my_id + "/-1", Toast.LENGTH_SHORT).show();
+                findViewById(R.id.appBarLayout2).setVisibility(View.GONE);
+                //Toast.makeText(getApplication(), my_id + "/-1", Toast.LENGTH_SHORT).show();
                 out.println(my_id + "/-1");
-                Toast.makeText(getApplication(), name, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplication(), name, Toast.LENGTH_SHORT).show();
                 out.println(name);
             }
 

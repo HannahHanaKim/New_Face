@@ -24,8 +24,8 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:scaleType="fitXY"
             android:transitionName="image" />
 
@@ -66,7 +66,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginRight="20dp"
+                android:layout_marginRight="10dp"
                 android:layout_toEndOf="@+id/name"
                 android:focusable="false"
                 android:gravity="right|center"
@@ -74,7 +74,7 @@
                 android:text="dd"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="@color/monsoon"
-                android:textSize="17sp" />
+                android:textSize="13sp" />
 
             <TextView
                 android:id="@+id/name"
@@ -82,7 +82,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignBottom="@+id/space"
                 android:layout_alignParentStart="true"
-                android:layout_marginLeft="13dp"
+                android:layout_marginLeft="0dp"
                 android:layout_marginRight="13dp"
                 android:layout_toStartOf="@+id/button2"
                 android:focusable="true"
@@ -103,7 +103,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/name"
-                android:layout_marginLeft="13dp"
+                android:layout_marginLeft="0dp"
                 android:layout_marginRight="13dp"
                 android:layout_toStartOf="@+id/button2"
                 android:focusable="true"
