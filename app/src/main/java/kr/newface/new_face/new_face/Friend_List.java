@@ -59,6 +59,7 @@ public class Friend_List extends Fragment {
                                  Bundle savedInstanceState) {
             view = inflater.inflate(R.layout.friend_list, null);
 
+            //listview refresh listener
             final PullRefreshLayout layout = (PullRefreshLayout) view.findViewById(R.id.swipeRefreshLayout);
             layout.setOnRefreshListener(new PullRefreshLayout.OnRefreshListener() {
                 @Override
@@ -89,11 +90,15 @@ public class Friend_List extends Fragment {
             mAdapter = new ListViewAdapter(getActivity());
             mListView.setAdapter(mAdapter);
 
+            //init image
             Drawable[] image_p = {getResources().getDrawable(R.drawable.asian_man),getResources().getDrawable(R.drawable.asian_woman),getResources().getDrawable(R.drawable.black_man),
                     getResources().getDrawable(R.drawable.black_woman),getResources().getDrawable(R.drawable.white_man),getResources().getDrawable(R.drawable.white_woman)};
 
+            //get from server
             String[] f_splt = my_frineds.split("/");
 
+
+            //add list
             for (int i = 1 ;i< f_splt.length;i++){
                 String[] f_splt2 = f_splt[i].split(" ");
                 String photo = f_splt2[3];
@@ -111,6 +116,7 @@ public class Friend_List extends Fragment {
             return view;
         }
 
+    //make list adapter
         private class ListViewAdapter extends BaseAdapter {
             private Context mContext = null;
             private ArrayList<Table_Cell> mListData = new ArrayList<Table_Cell>();
@@ -119,22 +125,25 @@ public class Friend_List extends Fragment {
                 super();
                 this.mContext = mContext;
             }
-
+            //set list size
             @Override
             public int getCount() {
                 return mListData.size();
             }
 
+            //set list position
         @Override
         public Object getItem(int position) {
             return mListData.get(position);
         }
 
+            //set list id position
         @Override
         public long getItemId(int position) {
             return position;
         }
 
+            //set layout code for listview
         @Override
         public View getView(final int position, View convertView, ViewGroup parent) {
             final ViewHolder holder;
@@ -144,6 +153,7 @@ public class Friend_List extends Fragment {
                 LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 convertView = inflater.inflate(R.layout.friend_cell, null);
 
+                //set layout to view
                 holder.image = (ImageView) convertView.findViewById(R.id.image);
                 holder.name = (TextView) convertView.findViewById(R.id.name);
                 holder.num = (TextView) convertView.findViewById(R.id.num);
@@ -156,11 +166,13 @@ public class Friend_List extends Fragment {
 
             final Table_Cell mData = mListData.get(position);
 
+            //set text
             holder.image.setImageDrawable(mData.image);
             holder.name.setText(mData.name);
             holder.num.setText(mData.num);
             holder.text.setText(mData.text);
 
+            //button listener
             Button Button1= (Button)  convertView  .findViewById(R.id.button);
             Button1.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -176,6 +188,7 @@ public class Friend_List extends Fragment {
             return convertView;
         }
 
+            //add list item
         public void addItem(Drawable image, String name, String num , String text,String id){
             Table_Cell addInfo = null;
             addInfo = new Table_Cell();
@@ -199,6 +212,7 @@ public class Friend_List extends Fragment {
         }
     }
 
+    //set list hold
     private class ViewHolder {
         public ImageView image;
         public TextView name;

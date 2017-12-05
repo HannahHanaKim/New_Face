@@ -11,8 +11,8 @@ import java.util.Comparator;
 
 public class Table_Cell {
 
+    //list cell set object
     public Drawable image;
-
     public String name;
     public String num;
     public String text;
@@ -21,6 +21,7 @@ public class Table_Cell {
     public static final Comparator<Table_Cell> ALPHA_COMPARATOR = new Comparator<Table_Cell>() {
         private final Collator sCollator = Collator.getInstance();
 
+        //for sort
         @Override
         public int compare(Table_Cell mListDate_1, Table_Cell mListDate_2) {
             return sCollator.compare(mListDate_1.name, mListDate_2.name);
