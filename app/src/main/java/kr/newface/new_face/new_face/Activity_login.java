@@ -146,7 +146,7 @@ public class Activity_login extends AppCompatActivity {
         try{
             //나중에 켜야됨
             clientSocket = new Socket(login_ip, 9002);
-            inFromServer =  new BufferedReader(new InputStreamReader(clientSocket.getInputStream(),"EUC-KR"));
+            inFromServer =  new BufferedReader(new InputStreamReader(clientSocket.getInputStream(),"UTF-8"));
             checkUpdate.start();
             outToServer = new BufferedWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
             mHandler = new Handler();
