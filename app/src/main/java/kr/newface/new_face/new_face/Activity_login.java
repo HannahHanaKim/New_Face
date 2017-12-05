@@ -46,7 +46,7 @@ public class Activity_login extends AppCompatActivity {
     static String login_ip = "";
     static String chat_ip = "";
 
-    @BindView(R.id.input_email) EditText _emailText;
+    @BindView(R.id.input_studentID) EditText _studentID;
     @BindView(R.id.input_password) EditText _passwordText;
     @BindView(R.id.btn_login) Button _loginButton;
     @BindView(R.id.link_signup) TextView _signupLink;
@@ -54,7 +54,7 @@ public class Activity_login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-//이 코드가 없으면 인터넷 통신이 안됨
+        //이 코드가 없으면 인터넷 통신이 안됨
         fa = this;
         if(android.os.Build.VERSION.SDK_INT > 9) {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
@@ -66,19 +66,22 @@ public class Activity_login extends AppCompatActivity {
         Toast.makeText(getApplicationContext(),login_ip, Toast.LENGTH_LONG).show();
 
         ButterKnife.bind(this);
-        init();
+        init();//서버와 연결을 시도함.
+
+        //로그인 버튼 클릭할 때 메소드
         _loginButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
+                //아이디나 비밀번호가 형식과 알맞지 않으면 보내는 메세지
                 if(!validate()) {
                     return;
                 }
                 else {
-                    try {
+                    try {//로그인형식과 맞으면 서버로 보냄
                         PrintWriter out = new PrintWriter(outToServer, true);
                         out.println("LOGIN");
-                        out.println(_emailText.getText().toString() + " " + _passwordText.getText().toString());
+                        out.println(_studentID.getText().toString() + " " + _passwordText.getText().toString());
                         //out.println();
                     } catch (Exception e) {
 
@@ -87,6 +90,7 @@ public class Activity_login extends AppCompatActivity {
             }
         });
 
+        //계정 만들기 버튼을 클릭하면 회원가입창으로 넘어감
         _signupLink.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -99,18 +103,20 @@ public class Activity_login extends AppCompatActivity {
             }
         });
     }
+    //아이디 비밀번호 형식이 맞는지 아닌지 확인해주는 메소드
+    //아이디는
     public boolean validate() {
         boolean valid = true;
 
-        String name = _emailText.getText().toString();
+        String name = _studentID.getText().toString();
         String password = _passwordText.getText().toString();
 
         if (name.length()!=9||name.isEmpty()) {
-            _emailText.setError("학번을 입력해주십시오");
+            _studentID.setError("학번을 입력해주십시오");
             valid = false;
         } else {
             studentID = name;
-            _emailText.setError(null);
+            _studentID.setError(null);
         }
 
         if (password.isEmpty() || password.length() < 4 || password.length() > 10) {
