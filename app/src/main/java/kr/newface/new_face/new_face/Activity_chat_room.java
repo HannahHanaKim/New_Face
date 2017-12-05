@@ -60,6 +60,7 @@ public class Activity_chat_room extends AppCompatActivity {
     private Socket clientSocket;
 
     User me;
+
     User you;
     String name;
 
@@ -198,8 +199,8 @@ public class Activity_chat_room extends AppCompatActivity {
             //나중에 켜야됨
             clientSocket = new Socket(chat_ip, 9001);
 
-            outToServer = new BufferedWriter(new OutputStreamWriter(clientSocket.getOutputStream(),"EUC-KR"));
-            inFromServer =  new BufferedReader(new InputStreamReader(clientSocket.getInputStream(),"EUC-KR"));
+            outToServer = new BufferedWriter(new OutputStreamWriter(clientSocket.getOutputStream(),"UTF-8"));
+            inFromServer =  new BufferedReader(new InputStreamReader(clientSocket.getInputStream(),"UTF-8"));
 
             checkUpdate.start();
             mHandler = new Handler();
