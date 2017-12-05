@@ -40,14 +40,14 @@ public class Activity_signup extends AppCompatActivity {
         setContentView(R.layout.activity_signup);
 
         ButterKnife.bind(this);
-
+        // Click the sign-up button to execute the sign-up function
         _signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 signup();
             }
         });
-
+        // If already a member, you can return to the login screen
         _loginLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -58,8 +58,9 @@ public class Activity_signup extends AppCompatActivity {
                 overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
             }
         });
+
         sliding = (RelativeLayout)findViewById(R.id.sliding);
-        //이미지 버튼을 누르면 이미지를 고를 수 잇는 창이 나타남
+        // Press the image button to display a screen to select the image
         image = (ImageView)findViewById(R.id.image);
         image.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,7 +81,7 @@ public class Activity_signup extends AppCompatActivity {
         image4 = (ImageView)findViewById(R.id.black_woman);
         image5 = (ImageView)findViewById(R.id.white_man);
         image6 = (ImageView)findViewById(R.id.white_woman);
-        //이미지를 선택할 시 이미지 선택창을 다시 안보이게 설정하고 선택한 이미지로 대체
+        // When selecting an image, select the image selection screen again and replace it with the selected image
 
         image1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -132,7 +133,7 @@ public class Activity_signup extends AppCompatActivity {
         });
 
     }
-
+    // Sign in if the condition is correct.
     public void signup() {
         Log.d(TAG, "Signup");
         if (!validate()) {
@@ -157,26 +158,24 @@ public class Activity_signup extends AppCompatActivity {
         new android.os.Handler().postDelayed(
                 new Runnable() {
                     public void run() {
-                        // On complete call either onSignupSuccess or onSignupFailed
-                        // depending on success
                         onSignupSuccess();
-                        // onSignupFailed();
                         progressDialog.dismiss();
                     }
-                }, 2000);
+                }, 1000);
     }
 
-
+    // Sign-up succeeds and turns to survey screen
     public void onSignupSuccess() {
         _signupButton.setEnabled(true);
         Intent it = new Intent(this, searchActivity.class);
         startActivity(it);
     }
-
+    // Stop button if sign-up fails
     public void onSignupFailed() {
         _signupButton.setEnabled(true);
     }
 
+    // Function to judge membership type
     public boolean validate() {
         boolean valid = true;
 

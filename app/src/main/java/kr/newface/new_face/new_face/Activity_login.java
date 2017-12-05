@@ -54,7 +54,7 @@ public class Activity_login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        //이 코드가 없으면 인터넷 통신이 안됨
+        //Without this code, Internet communication will not work
         fa = this;
         if(android.os.Build.VERSION.SDK_INT > 9) {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
@@ -66,23 +66,23 @@ public class Activity_login extends AppCompatActivity {
         Toast.makeText(getApplicationContext(),login_ip, Toast.LENGTH_LONG).show();
 
         ButterKnife.bind(this);
-        init();//서버와 연결을 시도함.
+        init();// Attempt to connect to the server.
 
-        //로그인 버튼 클릭할 때 메소드
+        // When click the login button
         _loginButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                //아이디나 비밀번호가 형식과 알맞지 않으면 보내는 메세지
+                //Make sure the ID or password is correct
                 if(!validate()) {
                     return;
                 }
                 else {
-                    try {//로그인형식과 맞으면 서버로 보냄
+                    try {
+                        //If it matches the format, it sends the ID and password to the server.
                         PrintWriter out = new PrintWriter(outToServer, true);
                         out.println("LOGIN");
                         out.println(_studentID.getText().toString() + " " + _passwordText.getText().toString());
-                        //out.println();
                     } catch (Exception e) {
 
                     }
@@ -90,7 +90,7 @@ public class Activity_login extends AppCompatActivity {
             }
         });
 
-        //계정 만들기 버튼을 클릭하면 회원가입창으로 넘어감
+        // Click the Create Account button to go to the Membership screen
         _signupLink.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -103,8 +103,8 @@ public class Activity_login extends AppCompatActivity {
             }
         });
     }
-    //아이디 비밀번호 형식이 맞는지 아닌지 확인해주는 메소드
-    //아이디는
+    // method to check whether ID password type is correct or not
+    // Student ID is 9 digits, password is 4-10 digits
     public boolean validate() {
         boolean valid = true;
 
@@ -145,12 +145,9 @@ public class Activity_login extends AppCompatActivity {
         // Disable going back to the MainActivity
         moveTaskToBack(true);
     }
+    // Function to open socket and connect to server.
     void init(){
-        //Toast.makeText(getApplication(), "여기까지옴", Toast.LENGTH_SHORT).show();
-        //getSupportActionBar().hide();
-        //getSupportActionBar().setElevation(0);
         try{
-            //나중에 켜야됨
             clientSocket = new Socket(login_ip, 9002);
             inFromServer =  new BufferedReader(new InputStreamReader(clientSocket.getInputStream(),"UTF-8"));
             checkUpdate.start();
@@ -162,6 +159,7 @@ public class Activity_login extends AppCompatActivity {
         }
     }
 
+    // Functions that process incoming data from the server
     private Thread checkUpdate = new Thread() {
         public void run() {
             try {
@@ -170,15 +168,15 @@ public class Activity_login extends AppCompatActivity {
                     mHandler.post(showUpdate);
                 }
             } catch (Exception e) {
-                //Log.w("error", "error");
+
             }
         }
     };
-
+    // Function to judge based on data received from server
     private Runnable showUpdate = new Runnable() {
         public void run() {
             if (from_server_temp != null){
-                //Toast.makeText(getApplication(), from_server_temp, Toast.LENGTH_SHORT).show();
+
                 if(from_server_temp.equalsIgnoreCase("error")){
                     Toast.makeText(getApplicationContext(),"로그인 실패", Toast.LENGTH_LONG).show();
                 }
@@ -192,19 +190,12 @@ public class Activity_login extends AppCompatActivity {
         }
     };
 
-
+    // The function to get the IP address from internet because it can not change every time the server is changed.
     public String gethttp2(String sstr1) {
         try {
             HttpClient client = new DefaultHttpClient();
             HttpGet post = new HttpGet();
             post.setURI(new URI(sstr1));
-            //post.setHeader("HOST","openapi.naver.com");
-            //post.setHeader("User-Agent","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36");
-            //post.setHeader("Accept","text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8");
-            //post.setHeader("Accept-Encoding","gzip, deflate, br");
-            //post.setHeader("Accept-Language","ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7");
-            //post.setHeader("Upgrade-Insecure-Requests","1");
-            //post.setHeader("Host","github.com");
 
             HttpResponse resp = client.execute(post);
             BufferedReader br = new BufferedReader(new InputStreamReader(resp.getEntity().getContent(),"UTF-8"));

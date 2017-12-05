@@ -36,7 +36,7 @@ public class searchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
-        init();
+        init();// Connect to the server
         final int[] q1 = new int[4];
         final int[] q2 = new int[6];
         final int[] q3 = new int[3];
@@ -713,6 +713,7 @@ public class searchActivity extends AppCompatActivity {
         else{
             btn.setEnabled(false);
         }
+        // Press button, it will be set to 1 if checked, 0 if not checked, and send it to server after making one string
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -773,19 +774,19 @@ public class searchActivity extends AppCompatActivity {
         });
 
     }
+    // Function to open socket and connect to server.
     void init(){
         try{
-            //나중에 켜야됨
             clientSocket = new Socket(login_ip, 9002);
             inFromServer =  new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
             checkUpdate.start();
             outToServer = new BufferedWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
             mHandler = new Handler();
-            //clientSocket.close();
         }catch (Exception e){
             Toast.makeText(getApplication(), "서버 오류", Toast.LENGTH_SHORT).show();
         }
     }
+    // A function that converts an array to a string.
     public String transString(int[] arr){
         String arrString = "";
         for(int i=0;i<arr.length;i++){
@@ -793,6 +794,7 @@ public class searchActivity extends AppCompatActivity {
         }
         return arrString;
     }
+    // Functions that process incoming data from the server
     private Thread checkUpdate = new Thread() {
         public void run() {
             try {
@@ -801,10 +803,11 @@ public class searchActivity extends AppCompatActivity {
                     mHandler.post(showUpdate);
                 }
             } catch (Exception e) {
-                //Log.w("error", "error");
+
             }
         }
     };
+    // Function to judge based on data received from server
     private Runnable showUpdate = new Runnable() {
         public void run() {
             if (from_server_temp != null){

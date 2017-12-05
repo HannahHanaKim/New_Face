@@ -20,7 +20,7 @@ public class IntroActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
 
-        //2초 후 인트로 액티비티 제거
+        //0.5초 후 인트로 액티비티 제거
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
