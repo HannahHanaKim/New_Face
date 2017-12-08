@@ -167,6 +167,7 @@ public class Activity_chat_room extends AppCompatActivity {
                     //get sender id
                     String get_code = from_server_temp.split("/")[0];
                     code = get_code;
+                    int id = Integer.parseInt(get_code);
                     //find sender name from id
                     String[] f_splt = my_frineds.split("/");
                     for (int i = 1 ;i< f_splt.length;i++){
@@ -188,7 +189,7 @@ public class Activity_chat_room extends AppCompatActivity {
                     Bitmap bitmap = ((BitmapDrawable)image_p[Integer.valueOf(photo)-1]).getBitmap();
 
                     //set sender profile
-                    you = new User(1, code, bitmap);
+                    you = new User(id, code, bitmap);
 
                     //Toast.makeText(getApplication(), from_server_temp, Toast.LENGTH_SHORT).show();
 

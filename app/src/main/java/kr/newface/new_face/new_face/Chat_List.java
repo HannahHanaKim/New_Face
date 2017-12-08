@@ -76,12 +76,12 @@ public class Chat_List extends Fragment {
         mListView.setAdapter(mAdapter);
 
         //add list
-        mAdapter.addItem(getResources().getDrawable(R.drawable.travel),"여행","참여인원:13명","여행 추천지, 여행 후기");
-        mAdapter.addItem(getResources().getDrawable(R.drawable.movie),"영화","참여인원:13명","최신개봉작 소개, 영화추천");
-        mAdapter.addItem(getResources().getDrawable(R.drawable.food),"푸드","참여인원:13명","맛집 소개, 레시피 공개");
-        mAdapter.addItem(getResources().getDrawable(R.drawable.sport),"스포츠","참여인원:13명","경기후기, 번개");
-        mAdapter.addItem(getResources().getDrawable(R.drawable.music),"음악","참여인원:13명","게임소식, 게임리뷰");
-        mAdapter.addItem(getResources().getDrawable(R.drawable.game),"게임","참여인원:13명","신곡소개, 음악추천");
+        mAdapter.addItem(getResources().getDrawable(R.drawable.travel),"여행","","여행 추천지, 여행 후기");
+        mAdapter.addItem(getResources().getDrawable(R.drawable.movie),"영화","","최신개봉작 소개, 영화추천");
+        mAdapter.addItem(getResources().getDrawable(R.drawable.food),"푸드","","맛집 소개, 레시피 공개");
+        mAdapter.addItem(getResources().getDrawable(R.drawable.sport),"스포츠","","경기후기, 번개");
+        mAdapter.addItem(getResources().getDrawable(R.drawable.music),"음악","","게임소식, 게임리뷰");
+        mAdapter.addItem(getResources().getDrawable(R.drawable.game),"게임","","신곡소개, 음악추천");
 
 
         return view;

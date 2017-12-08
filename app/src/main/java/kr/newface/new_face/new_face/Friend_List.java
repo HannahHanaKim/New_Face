@@ -104,12 +104,13 @@ public class Friend_List extends Fragment {
                 String photo = f_splt2[3];
                 String name = f_splt2[1];
                 String code = f_splt2[2];
+                String tmp_code = code.substring(2,4);
                 String str = f_splt2[4].replace("_"," ");
                 String point = f_splt2[5].replace(".","_");
                 if (point.contains("_")){
                     point = point.split("_")[0];
                 }
-                mAdapter.addItem(image_p[Integer.valueOf(photo)-1],name ,"매칭값:" + point + "%",str,code);
+                mAdapter.addItem(image_p[Integer.valueOf(photo)-1],tmp_code + name ,"매칭값:" + point + "%",str,code);
             }
 
 
